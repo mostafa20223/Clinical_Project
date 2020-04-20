@@ -3,10 +3,41 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType
-import mysql.connector as sql
-# import MySQLdb
+#import mysql.connector
+import MySQLdb
 
-ui,_ = loadUiType('E:/Desktop/Clinical/design.ui')
+
+
+
+ui,_ = loadUiType('design.ui')
+login,_ = loadUiType('login.ui')
+
+class login(QWidget, login):
+    def __init__(self):
+        QWidget.__init__(self)
+        self.setupUi(self)
+        self.pushButton.clicked.connect(self.Handel_login)
+
+    def Handel_login(self):
+        self.db = MySQLdb.connect(host='localhost' , user='root' , password='Ibrahim2060', db='library')
+        self.cur = self.db.cursor()
+        username = self.lineEdit.text()
+        password = self.lineEdit_2.text()
+
+        sql = ''' SELECT * FROM users'''
+        #for info in self.cur.execute(sql):
+         #   print(info)
+        self.cur.execute(sql)
+        data = self.cur.fetchall()
+        for row in data:
+            if username == row[1] and password == row[3]:
+                print('user match')
+                self.window2 = MainApp()
+                self.close()
+                self.window2.show()
+            else:
+                self.label.setText('Make sure you entered your username and password correctly')
+
 
 class MainApp(QMainWindow, ui):
     def __init__(self):
@@ -16,6 +47,12 @@ class MainApp(QMainWindow, ui):
         self.Handel_UI_changes()
         self.Handel_buttons()
         self.Dark_orange_theme()
+
+        self.show_category()
+        
+
+        self.show_category_combobox()
+        
 
     def Handel_UI_changes(self):
         self.Hiding_Themes()
@@ -29,6 +66,13 @@ class MainApp(QMainWindow, ui):
         self.pushButton_2.clicked.connect(self.open_books_tab)
         self.pushButton_3.clicked.connect(self.open_users_tab)
         self.pushButton_4.clicked.connect(self.open_settings_tab)
+
+        self.pushButton_8.clicked.connect(self.Add_new_book)
+
+        self.pushButton_14.clicked.connect(self.Add_category)
+        
+
+    
 
         self.pushButton_17.clicked.connect(self.Dark_orange_theme)
         self.pushButton_18.clicked.connect(self.Dark_blue_Theme)
@@ -68,9 +112,19 @@ class MainApp(QMainWindow, ui):
     ####################################################################
     ###################Books####################################
     def Add_new_book(self):
-        pass
+        
+        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.cur = self.db.cursor()
+        
+        book_title = self.lineEdit_8.text()
+        book_code = self.lineEdit_7.text()
+        book_category = self.comboBox_8.currentText()
+        book_author = self.comboBox_7.currentText()
+        book_publisher =self.comboBox_6.currentText()
+        book_price = self.lineEdit_6.text()
 
-    def Searc_books(self):
+
+    def Search_books(self):
         pass
 
     def Edit_boks(self):
@@ -82,9 +136,8 @@ class MainApp(QMainWindow, ui):
     ####################################################################
     ###################Users####################################
     def Add_new_user(self):
-        self.db = sql.connect(host='localhost' , user='root' , password='MUSTAFA!', db='mydatabase')
+        self.db = MySQLdb.connect(host='localhost' , user='root' , password='****', db='library')
         self.cur = self.db.cursor()
-        id = self.lineEdit_22.text()
         username = self.lineEdit_9.text()
         email=self.lineEdit_10.text()
         password = self.lineEdit_11.text()
@@ -92,9 +145,9 @@ class MainApp(QMainWindow, ui):
 
         if password == password2:
             self.cur.execute('''
-                INSERT INTO users(user_id, user_name, user_email, user_password)
+                INSERT INTO users(user_name , user_email ,user_password)
                 VALUES(%s,%s,%s,%s)
-            ''',(id, username, email, password))
+            ''',(username,email,password))
 
             self.db.commit()
             self.statusBar().showMessage('New User Added')
@@ -103,15 +156,15 @@ class MainApp(QMainWindow, ui):
             self.label_30.setText('Please add a valid password twice' )
 
     def login(self):
-        self.db = sql.connect(host='localhost' , user='root' , password='MUSTAFA!', db='mydatabase')
+        self.db = MySQLdb.connect(host='localhost' , user='root' , password='****', db='library')
         self.cur = self.db.cursor()
         username = self.lineEdit_14.text()
         password = self.lineEdit_13.text()
 
-        ret = ''' SELECT * FROM users '''
+        sql = ''' SELECT * FROM users'''
         #for info in self.cur.execute(sql):
          #   print(info)
-        self.cur.execute(ret)
+        self.cur.execute(sql)
         data = self.cur.fetchall()
         for row in data:
             if username == row[1] and password == row[3]:
@@ -132,7 +185,7 @@ class MainApp(QMainWindow, ui):
         original_name = self.lineEdit_14.text()
 
         if password == password2:
-            self.db = sql.connect(host='localhost' , user='root' , password='MUSTAFA!', db='mydatabase')
+            self.db = MySQLdb.connect(host='localhost' , user='root' , password='****', db='library')
             self.cur = self.db.cursor()
 
             self.cur.execute('''
@@ -146,31 +199,80 @@ class MainApp(QMainWindow, ui):
             print('make sure you entered you password correctly')
 
     ####################################################################
+    ###################Settings####################################
+    def Add_category(self):
+        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.cur = self.db.cursor()
+
+        category_name = self.lineEdit_19.text()
+
+        self.cur.execute('''
+            INSERT INTO category(category_name) VALUES (%s)
+        ''',(category_name,))
+
+        self.db.commit()
+        self.statusBar().showMessage('New Category Added')
+        self.lineEdit_19.setText('')
+        self.show_category()
+
+    def show_category(self):
+        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.cur = self.db.cursor()
+
+        self.cur.execute('''SELECT category_name FROM category''')
+        data = self.cur.fetchall()
+        #print(data)
+
+        if data:
+            self.tableWidget_2.setRowCount(0)
+            self.tableWidget_2.insertRow(0)
+            for row , form in enumerate(data):
+                for column , item in enumerate(form):
+                    self.tableWidget_2.setItem(row,column,QTableWidgetItem(str(item)))
+                    column +=1
+
+                row_position = self.tableWidget_2.rowCount()
+                self.tableWidget_2.insertRow(row_position)
+
+    ####################################################################
+    ###################Show Settings data in UI####################################
+    def show_category_combobox(self):
+        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.cur = self.db.cursor()
+
+        self.cur.execute(''' SELECT category_name FROM category''')
+        data = self.cur.fetchall()
+        print(data)
+        for category in data:
+            print(category[0])
+            self.comboBox_3.addItem(category[0])
+    
+    ####################################################################
     ###################UI Themes####################################
     def Dark_blue_Theme(self):
-        style = open('E:/Desktop/Clinical/themes/darkblue.css', 'r')
+        style = open('themes/darkblue.css', 'r')
         style=style.read()
         self.setStyleSheet(style)
 
     def Dark_gray_theme(self):
-        style = open('E:/Desktop/Clinical/themes/darkgray.css', 'r')
+        style = open('themes/darkgray.css', 'r')
         style=style.read()
         self.setStyleSheet(style)
 
     def Dark_orange_theme(self):
-        style = open('E:/Desktop/Clinical/themes/darkorange.css', 'r')
+        style = open('themes/darkorange.css', 'r')
         style=style.read()
         self.setStyleSheet(style)
 
     def qdark_theme(self):
-        style = open('E:/Desktop/Clinical/themes/qdark.css', 'r')
+        style = open('themes/qdark.css', 'r')
         style=style.read()
         self.setStyleSheet(style)
 
 
 def main():
     app=QApplication(sys.argv)
-    window=MainApp()
+    window=login()
     window.show()
     app.exec_()
 
