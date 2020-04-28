@@ -23,6 +23,14 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Courier 10 Pitch</family>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -45,6 +53,14 @@
       <width>101</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier 10 Pitch</family>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string/>
@@ -69,6 +85,14 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Courier 10 Pitch</family>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -91,6 +115,14 @@
       <width>101</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier 10 Pitch</family>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string/>
@@ -115,6 +147,14 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Courier 10 Pitch</family>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -134,23 +174,28 @@
      <rect>
       <x>160</x>
       <y>0</y>
-      <width>1271</width>
+      <width>1270</width>
       <height>621</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Bremen Bd BT</family>
+      <family>Courier 10 Pitch</family>
       <pointsize>8</pointsize>
+      <weight>75</weight>
       <italic>true</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="currentIndex">
      <number>2</number>
     </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Equipment_View</string>
      </attribute>
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
@@ -327,7 +372,7 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Equiment_Edit</string>
      </attribute>
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
@@ -339,11 +384,11 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
-        <string>Add New Book</string>
+        <string>Add New Equipment</string>
        </attribute>
        <widget class="QLineEdit" name="lineEdit_2">
         <property name="geometry">
@@ -448,7 +493,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Book Title</string>
+         <string>Equipment Code</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_4">
@@ -544,7 +589,7 @@
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
-        <string>Edit or Delete a Book</string>
+        <string>Edit or Delete an Equipment</string>
        </attribute>
        <widget class="QComboBox" name="comboBox_6">
         <property name="geometry">
@@ -581,7 +626,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Book Title</string>
+         <string>Equipment Code</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_10">
@@ -599,7 +644,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Publisher</string>
+         <string>Vendor</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_11">
@@ -617,7 +662,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Author</string>
+         <string>Engineer</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_12">
@@ -635,7 +680,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Book Code</string>
+         <string>Equipment Code</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_5">
@@ -701,7 +746,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Book Price</string>
+         <string>Equipment Price</string>
         </property>
        </widget>
        <widget class="QComboBox" name="comboBox_8">
@@ -767,7 +812,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Book Title</string>
+         <string>Equipment Code</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_9">
@@ -804,9 +849,235 @@
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>More Info</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1101</width>
+        <height>581</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier 10 Pitch</family>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tab_7">
+       <attribute name="title">
+        <string>Catergories</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>140</y>
+          <width>1081</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Category Name</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_14">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>60</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Add New Category</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_19">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>60</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_26">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>60</y>
+          <width>161</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>New Category name</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_8">
+       <attribute name="title">
+        <string>Engineers</string>
+       </attribute>
+       <widget class="QLabel" name="label_27">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>60</y>
+          <width>161</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Courier 10 Pitch</family>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>New Engineer</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_20">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>60</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Courier 10 Pitch</family>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_15">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>60</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Courier 10 Pitch</family>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Add New Author</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>140</y>
+          <width>1081</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Courier 10 Pitch</family>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <column>
+         <property name="text">
+          <string>Engineer Name</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_9">
+       <attribute name="title">
+        <string>Vendors</string>
+       </attribute>
+       <widget class="QLabel" name="label_28">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>60</y>
+          <width>161</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>New Vendor name</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_21">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>60</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_16">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>60</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Add New Publisher</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>140</y>
+          <width>1081</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Publisher Name</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>Page</string>
+      <string>User Details</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
@@ -1196,192 +1467,6 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>Page</string>
-     </attribute>
-     <widget class="QTabWidget" name="tabWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>1101</width>
-        <height>581</height>
-       </rect>
-      </property>
-      <property name="currentIndex">
-       <number>2</number>
-      </property>
-      <widget class="QWidget" name="tab_7">
-       <attribute name="title">
-        <string>Catergories</string>
-       </attribute>
-       <widget class="QTableWidget" name="tableWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>140</y>
-          <width>1081</width>
-          <height>411</height>
-         </rect>
-        </property>
-        <column>
-         <property name="text">
-          <string>Category Name</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QPushButton" name="pushButton_14">
-        <property name="geometry">
-         <rect>
-          <x>770</x>
-          <y>60</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Add New Category</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_19">
-        <property name="geometry">
-         <rect>
-          <x>440</x>
-          <y>60</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_26">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>60</y>
-          <width>161</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>New Category name</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tab_8">
-       <attribute name="title">
-        <string>Authors</string>
-       </attribute>
-       <widget class="QLabel" name="label_27">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>60</y>
-          <width>161</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>New Author</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_20">
-        <property name="geometry">
-         <rect>
-          <x>440</x>
-          <y>60</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_15">
-        <property name="geometry">
-         <rect>
-          <x>770</x>
-          <y>60</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Add New Author</string>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="tableWidget_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>140</y>
-          <width>1081</width>
-          <height>411</height>
-         </rect>
-        </property>
-        <column>
-         <property name="text">
-          <string>Author Name</string>
-         </property>
-        </column>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tab_9">
-       <attribute name="title">
-        <string>Publisher</string>
-       </attribute>
-       <widget class="QLabel" name="label_28">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>60</y>
-          <width>161</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>New Publisher name</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_21">
-        <property name="geometry">
-         <rect>
-          <x>440</x>
-          <y>60</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_16">
-        <property name="geometry">
-         <rect>
-          <x>770</x>
-          <y>60</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Add New Publisher</string>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="tableWidget_4">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>140</y>
-          <width>1081</width>
-          <height>411</height>
-         </rect>
-        </property>
-        <column>
-         <property name="text">
-          <string>Publisher Name</string>
-         </property>
-        </column>
-       </widget>
-      </widget>
-     </widget>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="enabled">
@@ -1394,6 +1479,14 @@
       <width>411</width>
       <height>601</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier 10 Pitch</family>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -1412,7 +1505,11 @@
      </property>
      <property name="font">
       <font>
+       <family>Courier 10 Pitch</family>
        <pointsize>12</pointsize>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -1427,6 +1524,14 @@
        <width>161</width>
        <height>131</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Courier 10 Pitch</family>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(50, 50, 50);
@@ -1445,6 +1550,14 @@ color: rgb(255, 255, 255);</string>
        <height>131</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Courier 10 Pitch</family>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(48, 47, 47);
 color: rgb(255, 255, 255);</string>
@@ -1461,6 +1574,14 @@ color: rgb(255, 255, 255);</string>
        <width>151</width>
        <height>131</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Courier 10 Pitch</family>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(25, 35, 45);
@@ -1479,6 +1600,14 @@ color: rgb(255, 255, 255);</string>
        <height>131</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Courier 10 Pitch</family>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(50, 50, 50);
 color: rgb(255, 255, 255);</string>
@@ -1496,6 +1625,14 @@ color: rgb(255, 255, 255);</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Courier 10 Pitch</family>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>&gt;</string>
      </property>
@@ -1508,7 +1645,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1438</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

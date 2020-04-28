@@ -3,11 +3,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType
-#import mysql.connector
-import MySQLdb
-
-
-
+import mysql.connector as sql
+# import MySQLdb
 
 ui,_ = loadUiType('design.ui')
 login,_ = loadUiType('login.ui')
@@ -19,7 +16,7 @@ class login(QWidget, login):
         self.pushButton.clicked.connect(self.Handel_login)
 
     def Handel_login(self):
-        self.db = MySQLdb.connect(host='localhost' , user='root' , password='Ibrahim2060', db='library')
+        self.db = sql.connect(host = 'localhost', user = 'root', password = 'MUSTAFA!', db = 'mydatabase')
         self.cur = self.db.cursor()
         username = self.lineEdit.text()
         password = self.lineEdit_2.text()
@@ -113,7 +110,7 @@ class MainApp(QMainWindow, ui):
     ###################Books####################################
     def Add_new_book(self):
         
-        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.db = sql.connect(host ='localhost' , user ='root' , password ='MUSTAFA!' ,db='mydatabase' )
         self.cur = self.db.cursor()
         
         book_title = self.lineEdit_8.text()
@@ -136,7 +133,7 @@ class MainApp(QMainWindow, ui):
     ####################################################################
     ###################Users####################################
     def Add_new_user(self):
-        self.db = MySQLdb.connect(host='localhost' , user='root' , password='****', db='library')
+        self.db = sql.connect(host='localhost' , user='root' , password='****', db='mydatabase')
         self.cur = self.db.cursor()
         username = self.lineEdit_9.text()
         email=self.lineEdit_10.text()
@@ -156,7 +153,7 @@ class MainApp(QMainWindow, ui):
             self.label_30.setText('Please add a valid password twice' )
 
     def login(self):
-        self.db = MySQLdb.connect(host='localhost' , user='root' , password='****', db='library')
+        self.db = sql.connect(host='localhost' , user='root' , password='****', db='mydatabase')
         self.cur = self.db.cursor()
         username = self.lineEdit_14.text()
         password = self.lineEdit_13.text()
@@ -185,7 +182,7 @@ class MainApp(QMainWindow, ui):
         original_name = self.lineEdit_14.text()
 
         if password == password2:
-            self.db = MySQLdb.connect(host='localhost' , user='root' , password='****', db='library')
+            self.db = sql.connect(host='localhost' , user='root' , password='****', db='mydatabase')
             self.cur = self.db.cursor()
 
             self.cur.execute('''
@@ -201,7 +198,7 @@ class MainApp(QMainWindow, ui):
     ####################################################################
     ###################Settings####################################
     def Add_category(self):
-        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.db = sql.connect(host ='localhost' , user ='root' , password ='MUSTAFA!' ,db='mydatabase' )
         self.cur = self.db.cursor()
 
         category_name = self.lineEdit_19.text()
@@ -216,7 +213,7 @@ class MainApp(QMainWindow, ui):
         self.show_category()
 
     def show_category(self):
-        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.db = sql.connect(host ='localhost' , user ='root' , password ='MUSTAFA!' ,db='mydatabase' )
         self.cur = self.db.cursor()
 
         self.cur.execute('''SELECT category_name FROM category''')
@@ -237,7 +234,7 @@ class MainApp(QMainWindow, ui):
     ####################################################################
     ###################Show Settings data in UI####################################
     def show_category_combobox(self):
-        self.db = MySQLdb.connect(host ='localhost' , user ='root' , password ='Ibrahim2060' ,db='library' )
+        self.db = sql.connect(host = 'localhost', user = 'root', password = 'MUSTAFA!', db = 'mydatabase')
         self.cur = self.db.cursor()
 
         self.cur.execute(''' SELECT category_name FROM category''')
