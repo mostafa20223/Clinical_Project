@@ -41,6 +41,7 @@ class MainApp(QMainWindow, ui):
         self.Handel_buttons()
         self.Dark_orange_theme()
 
+        self.show_cmms()
         self.show_category_combobox()
         self.show_engineer_combobox()
         self.show_vendor_combobox()
@@ -59,6 +60,7 @@ class MainApp(QMainWindow, ui):
         self.pushButton_8.clicked.connect(self.Add_new_book)
         self.add_cat_btn.clicked.connect(self.Add_category)
         self.view_cat_btn.clicked.connect(self.show_category)
+        self.edit_cat_btn.clicked.connect(self.Edit_category)
         self.dark_orange.clicked.connect(self.Dark_orange_theme)
         self.dark_blue.clicked.connect(self.Dark_blue_Theme)
         self.dark_grey.clicked.connect(self.Dark_gray_theme)
@@ -155,13 +157,29 @@ class MainApp(QMainWindow, ui):
         if password == password2:
             self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
             self.cur = self.db.cursor()
-
             self.cur.execute(''' UPDATE users SET username = %s, email = %s, password = %s WHERE username = %s '''
                              , (username, email, password, original_name))
             self.db.commit()
             self.statusBar().showMessage('User data updated successfully')
         else:
             self.statusBar().showMessage('make sure you entered you password correctly')
+
+    # cmms
+    def show_cmms(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        self.cur.execute(''' SELECT serial_number, equipment_name, equipment_code, work_time, insurance, maintenance, price, cat_name, ssn, eng_name, eng_phone, eng_email FROM equipment INNER JOIN category ON cat_name = name INNER JOIN engineer ON equip_sn = serial_number ''')
+        data = self.cur.fetchall()
+
+        if data:
+            self.cmms_table.setRowCount(0)
+            self.cmms_table.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.cmms_table.setItem(row, column, QTableWidgetItem(str(item)))
+                    column += 1
+                row_position = self.cmms_table.rowCount()
+                self.cmms_table.insertRow(row_position)    
 
     # Category
     def Add_category(self):
@@ -173,10 +191,6 @@ class MainApp(QMainWindow, ui):
                          , (category_name, category_floor))
         self.db.commit()
         self.statusBar().showMessage('New Category Added')
-#        self.cat_name.setText(' ')
-#        self.cat_name.setPlaceholderText('Enter category name')
-#        self.cat_floor.setText(' ')
-#        self.cat_floor.setPlaceholderText('Enter category floor')
         self.show_category()
 
     def show_category(self):
@@ -191,10 +205,22 @@ class MainApp(QMainWindow, ui):
             for row, form in enumerate(data):
                 for column, item in enumerate(form):
                     self.category_table.setItem(row, column, QTableWidgetItem(str(item)))
-                    #self.category_table.setItem(row + 1, column + 1, QTableWidgetItem(str(item[row + 1][column + 1])))
                     column += 1
                 row_position = self.category_table.rowCount()
                 self.category_table.insertRow(row_position)
+
+    def Edit_category(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        real_cat_name = self.cat_name0.text()
+        real_cat_floor = self.cat_floor0.text()
+        new_cat_name = self.cat_name1.text()
+        new_cat_floor = self.cat_floor1.text()
+        self.cur.execute(''' UPDATE category SET name = %s, floor = %s WHERE name = %s '''
+                             , (new_cat_name, new_cat_floor, real_cat_name))
+        self.db.commit()
+        self.statusBar().showMessage('Category updated successfully')
+        self.show_category()
 
     # Show Category in UI
     def show_category_combobox(self):
@@ -204,6 +230,13 @@ class MainApp(QMainWindow, ui):
         data = self.cur.fetchall()
         for category in data:
             self.category_combo.addItem(category[0])
+
+    # CMMS
+    def show_cmms(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        self.cur.execute(''' SELECT * FROM equipment ''')
+        data = self.cur.fetchall()
 
     # Equipment
     def Add_equipment(self):
@@ -216,11 +249,7 @@ class MainApp(QMainWindow, ui):
         self.cur.execute(''' INSERT INTO equipment (ssn, eng name, eng phone, eng email) VALUES (%s, %s, %s, %s) '''
                          , (ssn, eng_name, eng_phone, eng_email))
         self.db.commit()
-        self.statusBar().showMessage('New Engineer Added')
-        self.cat_name.setText(' ')
-        self.cat_floor.setText(' ')
-        self.cat_name.setText(' ')
-        self.cat_floor.setText(' ')
+        self.statusBar().showMessage('New Equipment Added')
         self.show_equipment()
 
     def show_equipment(self):
@@ -228,7 +257,6 @@ class MainApp(QMainWindow, ui):
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM equipment ''')
         data = self.cur.fetchall()
-        #print(data)
 
         if data:
             self.tableWidget_2.setRowCount(0)
@@ -253,14 +281,6 @@ class MainApp(QMainWindow, ui):
                          , (ssn, eng_name, eng_phone, eng_email))
         self.db.commit()
         self.statusBar().showMessage('New Engineer Added')
-#        self.eng_ssn.setText(' ')
-#        self.eng_ssn.setPlaceholderText('Enter engineer SSN')
-#        self.eng_name.setText(' ')
-#        self.eng_name.setPlaceholderText('Enter engineer name')
-#        self.eng_mail.setText(' ')
-#        self.eng_mail.setPlaceholderText('Enter engineer e-mail')
-#        self.eng_phone.setText(' ')
-#        self.eng_phone.setPlaceholderText('Enter engineer phone')
         self.show_engineer()
 
     def show_engineer(self):
@@ -299,14 +319,6 @@ class MainApp(QMainWindow, ui):
                          , (vendor_ssn, vendor_name, vendor_phone, vendor_email))
         self.db.commit()
         self.statusBar().showMessage('New Vendor Added')
-#        self.vendor_name.setText(' ')
-#        self.vendor_name.setPlaceholderText('Enter vendor name')
-#        self.vendor_ssn.setText(' ')
-#        self.vendor_ssn.setPlaceholderText('Enter vendor SSN')
-#        self.vendor_phone.setText(' ')
-#        self.vendor_phone.setPlaceholderText('Enter vendor phone')
-#        self.vendor_mail.setText(' ')
-#        self.vendor_mail.setPlaceholderText('Enter vendor e-mail')
         self.show_vendor()
 
     def show_vendor(self):
@@ -358,6 +370,15 @@ def main():
     app.exec_()
 if __name__=='__main__':
     main()
+
+#INSERT INTO cmms.equipment
+#(serial_number, equipment_name, equipment_code, work_time, insurance, maintenance, price, cat_name)
+#VALUES
+#("E2", "Monitor", "0001", "2020-03-23", "2020-06-20", "2020-04-20", "1500", "ICU");
+
+#SELECT serial_number, equipment_name, equipment_code, work_time, insurance, maintenance, price, cat_name
+#FROM cmms.equipment
+#INNER JOIN cmms.category ON cat_name = name;
 
 
 

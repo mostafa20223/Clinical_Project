@@ -39,7 +39,7 @@
      <attribute name="title">
       <string>CMMS View</string>
      </attribute>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="cmms_table">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -48,34 +48,129 @@
         <height>571</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+       </font>
+      </property>
       <column>
        <property name="text">
-        <string>book code</string>
+        <string>Serial Number</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>New Column</string>
+        <string>Equip Name</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>book author</string>
+        <string>Equip Code</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>book publisher</string>
+        <string>Work Time</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>book category</string>
+        <string>Insurance</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>book price</string>
+        <string>Maintenance</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Price</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Category Name</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Eng SSN</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Eng Name</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Eng Phone</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Eng Email</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
        </property>
       </column>
      </widget>
@@ -249,7 +344,7 @@ color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -258,19 +353,9 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLineEdit" name="lineEdit_2">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>520</x>
           <y>50</y>
           <width>241</width>
-          <height>41</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_3">
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>40</y>
-          <width>201</width>
           <height>41</height>
          </rect>
         </property>
@@ -278,18 +363,18 @@ color: rgb(255, 255, 255);</string>
        <widget class="QPlainTextEdit" name="plainTextEdit">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>110</y>
-          <width>401</width>
-          <height>361</height>
+          <x>20</x>
+          <y>70</y>
+          <width>481</width>
+          <height>451</height>
          </rect>
         </property>
        </widget>
        <widget class="QComboBox" name="category_combo">
         <property name="geometry">
          <rect>
-          <x>610</x>
-          <y>110</y>
+          <x>660</x>
+          <y>310</y>
           <width>211</width>
           <height>22</height>
          </rect>
@@ -298,56 +383,28 @@ color: rgb(255, 255, 255);</string>
        <widget class="QComboBox" name="eng_combo">
         <property name="geometry">
          <rect>
-          <x>610</x>
-          <y>160</y>
+          <x>660</x>
+          <y>360</y>
           <width>211</width>
           <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_4">
-        <property name="geometry">
-         <rect>
-          <x>630</x>
-          <y>260</y>
-          <width>191</width>
-          <height>41</height>
          </rect>
         </property>
        </widget>
        <widget class="QComboBox" name="vendor_combo">
         <property name="geometry">
          <rect>
-          <x>610</x>
-          <y>210</y>
+          <x>660</x>
+          <y>410</y>
           <width>211</width>
           <height>22</height>
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_7">
-        <property name="geometry">
-         <rect>
-          <x>490</x>
-          <y>480</y>
-          <width>161</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Save</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>60</y>
+          <x>500</x>
+          <y>20</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -361,47 +418,11 @@ color: rgb(255, 255, 255);</string>
          <string>Equipment Code</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_4">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>50</y>
-          <width>111</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Book Code</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_5">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>270</y>
-          <width>111</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Book Price</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="Catergories">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>110</y>
+          <x>550</x>
+          <y>310</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -418,8 +439,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="Engineers">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>160</y>
+          <x>550</x>
+          <y>360</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -436,8 +457,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="Vendors">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>210</y>
+          <x>550</x>
+          <y>410</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -449,6 +470,19 @@ color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Vendors</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="view_equip_btn">
+        <property name="geometry">
+         <rect>
+          <x>182</x>
+          <y>20</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>View Equipment</string>
         </property>
        </widget>
       </widget>
@@ -1196,8 +1230,8 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>841</width>
-        <height>581</height>
+        <width>1261</width>
+        <height>571</height>
        </rect>
       </property>
       <property name="font">
@@ -1207,172 +1241,254 @@ color: rgb(255, 255, 255);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
         <string>Catergories</string>
        </attribute>
-       <widget class="QTableWidget" name="category_table">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>200</y>
-          <width>821</width>
-          <height>341</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Courier New</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Floor</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-          </font>
-         </property>
-        </column>
-       </widget>
-       <widget class="QGroupBox" name="AddCategory">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>14</y>
-          <width>571</width>
-          <height>171</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Add New Category</string>
-        </property>
-        <widget class="QPushButton" name="add_cat_btn">
-         <property name="geometry">
-          <rect>
-           <x>390</x>
-           <y>128</y>
-           <width>161</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Add New Category</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="NewCategory">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>28</y>
-           <width>151</width>
-           <height>41</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>New Category name:</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="cat_floor">
-         <property name="geometry">
-          <rect>
-           <x>200</x>
-           <y>78</y>
-           <width>251</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter category floor</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="CategoryFloor">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>73</y>
-           <width>171</width>
-           <height>41</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Enter Category floor:</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="cat_name">
-         <property name="geometry">
-          <rect>
-           <x>200</x>
-           <y>33</y>
-           <width>251</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter category name</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QPushButton" name="view_cat_btn">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>78</y>
-          <width>181</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>View Category</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="view_cat_btn">
+          <property name="text">
+           <string>View Category</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" rowspan="2">
+         <widget class="QTableWidget" name="category_table">
+          <property name="font">
+           <font>
+            <family>Courier New</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Floor</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+            </font>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="AddCategory">
+          <property name="title">
+           <string>Add New Category</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="NewCategoryName">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>New Category name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="NewCategoryFloor">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>New Category floor:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="cat_name">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter category name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="add_cat_btn">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Add New Category</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="cat_floor">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter category floor</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="EditCategory">
+          <property name="title">
+           <string>Edit Category</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="CategoryName">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Enter Category name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="cat_name0">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter category name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="CategoryFloor">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Enter Category floor:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="cat_floor0">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter category floor</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="EditCategoryName">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Edit Category name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="cat_name1">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter new category name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="EditCategoryFloor">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Edit Category floor:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="cat_floor1">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter new category floor</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QPushButton" name="edit_cat_btn">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Edit Category</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
@@ -1382,9 +1498,9 @@ color: rgb(255, 255, 255);</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>260</y>
-          <width>821</width>
-          <height>291</height>
+          <y>70</y>
+          <width>491</width>
+          <height>481</height>
          </rect>
         </property>
         <property name="font">
@@ -1440,10 +1556,10 @@ color: rgb(255, 255, 255);</string>
        <widget class="QGroupBox" name="AddEngineer">
         <property name="geometry">
          <rect>
-          <x>250</x>
+          <x>610</x>
           <y>10</y>
-          <width>571</width>
-          <height>241</height>
+          <width>591</width>
+          <height>231</height>
          </rect>
         </property>
         <property name="font">
@@ -1460,7 +1576,7 @@ color: rgb(255, 255, 255);</string>
           <rect>
            <x>230</x>
            <y>30</y>
-           <width>311</width>
+           <width>321</width>
            <height>31</height>
           </rect>
          </property>
@@ -1482,7 +1598,7 @@ color: rgb(255, 255, 255);</string>
           <rect>
            <x>230</x>
            <y>70</y>
-           <width>311</width>
+           <width>321</width>
            <height>31</height>
           </rect>
          </property>
@@ -1504,7 +1620,7 @@ color: rgb(255, 255, 255);</string>
           <rect>
            <x>230</x>
            <y>110</y>
-           <width>311</width>
+           <width>321</width>
            <height>31</height>
           </rect>
          </property>
@@ -1526,7 +1642,7 @@ color: rgb(255, 255, 255);</string>
           <rect>
            <x>230</x>
            <y>150</y>
-           <width>311</width>
+           <width>321</width>
            <height>31</height>
           </rect>
          </property>
@@ -1546,7 +1662,7 @@ color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="add_eng_btn">
          <property name="geometry">
           <rect>
-           <x>470</x>
+           <x>500</x>
            <y>190</y>
            <width>75</width>
            <height>31</height>
@@ -1618,8 +1734,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QPushButton" name="view_eng_btn">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>100</y>
+          <x>140</x>
+          <y>23</y>
           <width>181</width>
           <height>23</height>
          </rect>
@@ -1627,6 +1743,184 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string>View Engineers</string>
         </property>
+       </widget>
+       <widget class="QGroupBox" name="AddEngineer_2">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>270</y>
+          <width>731</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Courier New</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>Edit Engineer</string>
+        </property>
+        <widget class="QLineEdit" name="eng_ssn_2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>30</y>
+           <width>321</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter engineer SSN</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="eng_name_2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>70</y>
+           <width>321</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter engineer name</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="eng_mail_2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>110</y>
+           <width>321</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter engineer e-mail</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="eng_phone_2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>150</y>
+           <width>321</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter engineer phone</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="add_eng_btn_2">
+         <property name="geometry">
+          <rect>
+           <x>500</x>
+           <y>190</y>
+           <width>75</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Submit</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="EngSSN_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>37</y>
+           <width>121</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Engineer SSN:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="EngName_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>76</y>
+           <width>121</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Engineer Name:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="EngEmail_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>118</y>
+           <width>131</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Engineer Email:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="EngPhone_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>158</y>
+           <width>131</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Engineer Phone:</string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_9">
