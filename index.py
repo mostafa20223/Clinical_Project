@@ -68,9 +68,9 @@ class MainApp(QMainWindow, ui):
         self.add_user_btn.clicked.connect(self.Add_new_user)
         self.user_login_btn.clicked.connect(self.login)
         self.edit_user_btn.clicked.connect(self.Edit_user)
-        #self.add_equip_btn.clicked.connect(self.Add_equipment)
+        self.add_equip_btn.clicked.connect(self.Add_equipment)
         self.view_equip_btn.clicked.connect(self.show_equipment)
-        #self.edit_equip_btn.clicked.connect(self.Edit_equipment)
+        self.del_equip_btn.clicked.connect(self.delete_equipment)
         self.add_eng_btn.clicked.connect(self.Add_engineer)
         self.view_eng_btn.clicked.connect(self.show_engineer)
         self.edit_eng_btn.clicked.connect(self.Edit_engineer)
@@ -244,11 +244,15 @@ class MainApp(QMainWindow, ui):
     def Add_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        ssn = self.cat_name.text()
-        eng_name = self.cat_floor.text()
-        eng_phone = self.cat_name.text()
-        eng_email = self.cat_floor.text()
-        self.cur.execute(''' INSERT INTO equipment (ssn, eng name, eng phone, eng email) VALUES (%s, %s, %s, %s) '''
+        sn = self.equip_sn.text()
+        equip_name = self.equip_name.text()
+        equip_code = self.equip_code.text()
+        equip_wt = self.equip_wt.text()
+        equip_ins = self.equip_ins.text()
+        equip_main = self.equip_main.text()
+        equip_price = self.equip_price.text()
+        equip_category = self.equip_catname.text()
+        self.cur.execute(''' INSERT INTO equipment (serial_number, equip name, eng phone, eng email) VALUES (%s, %s, %s, %s) '''
                          , (ssn, eng_name, eng_phone, eng_email))
         self.db.commit()
         self.statusBar().showMessage('New Equipment Added')
@@ -269,6 +273,15 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.equipment_table.rowCount()
                 self.equipment_table.insertRow(row_position)
+
+    def delete_equipment(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        equipment_code = self.equip_code0.text()
+        self.cur.execute(''' DELETE FROM equipment WHERE equipment_code = %s '''
+                         , equipment_code)
+        self.db.commit()
+        self.show_equipment()
 
     # Engineer
     def Add_engineer(self):
@@ -399,10 +412,4 @@ if __name__=='__main__':
 #FROM cmms.equipment
 #INNER JOIN cmms.category ON cat_name = name;
 
-
-
-
-
-
-
-
+#DELETE FROM table_name WHERE condition;
