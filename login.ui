@@ -50,6 +50,9 @@
          <font>
           <family>Courier New</family>
           <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
          </font>
         </property>
         <property name="placeholderText">
@@ -76,6 +79,9 @@
          <font>
           <family>Courier New</family>
           <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
          </font>
         </property>
         <property name="echoMode">

@@ -344,7 +344,7 @@ color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -353,28 +353,18 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLineEdit" name="lineEdit_2">
         <property name="geometry">
          <rect>
-          <x>520</x>
-          <y>50</y>
+          <x>600</x>
+          <y>70</y>
           <width>241</width>
           <height>41</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPlainTextEdit" name="plainTextEdit">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>70</y>
-          <width>481</width>
-          <height>451</height>
          </rect>
         </property>
        </widget>
        <widget class="QComboBox" name="category_combo">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>310</y>
+          <x>630</x>
+          <y>150</y>
           <width>211</width>
           <height>22</height>
          </rect>
@@ -383,8 +373,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QComboBox" name="eng_combo">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>360</y>
+          <x>630</x>
+          <y>200</y>
           <width>211</width>
           <height>22</height>
          </rect>
@@ -393,8 +383,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QComboBox" name="vendor_combo">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>410</y>
+          <x>630</x>
+          <y>250</y>
           <width>211</width>
           <height>22</height>
          </rect>
@@ -403,8 +393,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>20</y>
+          <x>520</x>
+          <y>40</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -421,8 +411,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="Catergories">
         <property name="geometry">
          <rect>
-          <x>550</x>
-          <y>310</y>
+          <x>520</x>
+          <y>150</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -439,8 +429,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="Engineers">
         <property name="geometry">
          <rect>
-          <x>550</x>
-          <y>360</y>
+          <x>520</x>
+          <y>200</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -457,8 +447,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="Vendors">
         <property name="geometry">
          <rect>
-          <x>550</x>
-          <y>410</y>
+          <x>520</x>
+          <y>250</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -472,18 +462,103 @@ color: rgb(255, 255, 255);</string>
          <string>Vendors</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="view_equip_btn">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
-          <x>182</x>
-          <y>20</y>
-          <width>141</width>
-          <height>31</height>
+          <x>20</x>
+          <y>10</y>
+          <width>481</width>
+          <height>511</height>
          </rect>
         </property>
-        <property name="text">
-         <string>View Equipment</string>
-        </property>
+        <layout class="QGridLayout" name="gridLayout_9">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="view_equip_btn">
+           <property name="text">
+            <string>View Equipment</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QTableWidget" name="equipment_table">
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+            </font>
+           </property>
+           <column>
+            <property name="text">
+             <string>Serial Number</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Equipment Name</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Equipment Code</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Work Time</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Insurance</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Maintenance</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Price</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_6">
@@ -758,7 +833,7 @@ color: rgb(255, 255, 255);</string>
         <x>10</x>
         <y>20</y>
         <width>411</width>
-        <height>501</height>
+        <height>541</height>
        </rect>
       </property>
       <property name="font">
@@ -794,11 +869,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="add_user">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="placeholderText">
@@ -826,11 +899,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="add_email">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="placeholderText">
@@ -858,11 +929,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="add_pass">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="echoMode">
@@ -893,11 +962,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="readd_pass">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="echoMode">
@@ -959,11 +1026,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="access_pass">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="echoMode">
@@ -978,11 +1043,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="access_user">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="placeholderText">
@@ -1047,9 +1110,9 @@ color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>280</y>
+        <y>270</y>
         <width>401</width>
-        <height>241</height>
+        <height>291</height>
        </rect>
       </property>
       <property name="font">
@@ -1088,11 +1151,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="edit_user">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="placeholderText">
@@ -1120,11 +1181,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="edit_email">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="placeholderText">
@@ -1152,11 +1211,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="edit_pass">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="echoMode">
@@ -1187,11 +1244,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="reedit_pass">
          <property name="font">
           <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="echoMode">
@@ -1326,6 +1381,9 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Courier New</family>
                <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
               </font>
              </property>
              <property name="placeholderText">
@@ -1352,6 +1410,9 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Courier New</family>
                <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
               </font>
              </property>
              <property name="placeholderText">
@@ -1387,6 +1448,9 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Courier New</family>
                <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
               </font>
              </property>
              <property name="placeholderText">
@@ -1413,6 +1477,9 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Courier New</family>
                <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
               </font>
              </property>
              <property name="placeholderText">
@@ -1439,6 +1506,9 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Courier New</family>
                <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
               </font>
              </property>
              <property name="placeholderText">
@@ -1465,6 +1535,9 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Courier New</family>
                <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
               </font>
              </property>
              <property name="placeholderText">
@@ -1494,69 +1567,10 @@ color: rgb(255, 255, 255);</string>
        <attribute name="title">
         <string>Engineers</string>
        </attribute>
-       <widget class="QTableWidget" name="eng_table">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>70</y>
-          <width>491</width>
-          <height>481</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Courier New</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <column>
-         <property name="text">
-          <string>SSN</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Phone</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>E-mail</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-          </font>
-         </property>
-        </column>
-       </widget>
        <widget class="QGroupBox" name="AddEngineer">
         <property name="geometry">
          <rect>
-          <x>610</x>
+          <x>570</x>
           <y>10</y>
           <width>591</width>
           <height>231</height>
@@ -1584,9 +1598,9 @@ color: rgb(255, 255, 255);</string>
           <font>
            <family>Courier New</family>
            <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="placeholderText">
@@ -1662,9 +1676,9 @@ color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="add_eng_btn">
          <property name="geometry">
           <rect>
-           <x>500</x>
+           <x>394</x>
            <y>190</y>
-           <width>75</width>
+           <width>181</width>
            <height>31</height>
           </rect>
          </property>
@@ -1675,7 +1689,7 @@ color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="text">
-          <string>Submit</string>
+          <string>Add New Engineer</string>
          </property>
         </widget>
         <widget class="QLabel" name="EngSSN">
@@ -1731,26 +1745,13 @@ color: rgb(255, 255, 255);</string>
          </property>
         </widget>
        </widget>
-       <widget class="QPushButton" name="view_eng_btn">
+       <widget class="QGroupBox" name="EditEngineer">
         <property name="geometry">
          <rect>
-          <x>140</x>
-          <y>23</y>
-          <width>181</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>View Engineers</string>
-        </property>
-       </widget>
-       <widget class="QGroupBox" name="AddEngineer_2">
-        <property name="geometry">
-         <rect>
-          <x>510</x>
-          <y>270</y>
-          <width>731</width>
-          <height>261</height>
+          <x>470</x>
+          <y>250</y>
+          <width>771</width>
+          <height>281</height>
          </rect>
         </property>
         <property name="font">
@@ -1762,34 +1763,12 @@ color: rgb(255, 255, 255);</string>
         <property name="title">
          <string>Edit Engineer</string>
         </property>
-        <widget class="QLineEdit" name="eng_ssn_2">
+        <widget class="QLineEdit" name="eng_ssn0">
          <property name="geometry">
           <rect>
-           <x>230</x>
-           <y>30</y>
-           <width>321</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter engineer SSN</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="eng_name_2">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>70</y>
-           <width>321</width>
+           <x>170</x>
+           <y>62</y>
+           <width>281</width>
            <height>31</height>
           </rect>
          </property>
@@ -1803,15 +1782,15 @@ color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="placeholderText">
-          <string>Enter engineer name</string>
+          <string>Enter current engineer SSN</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="eng_mail_2">
+        <widget class="QLineEdit" name="eng_name0">
          <property name="geometry">
           <rect>
-           <x>230</x>
-           <y>110</y>
-           <width>321</width>
+           <x>170</x>
+           <y>102</y>
+           <width>281</width>
            <height>31</height>
           </rect>
          </property>
@@ -1825,15 +1804,15 @@ color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="placeholderText">
-          <string>Enter engineer e-mail</string>
+          <string>Enter current engineer name</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="eng_phone_2">
+        <widget class="QLineEdit" name="eng_mail0">
          <property name="geometry">
           <rect>
-           <x>230</x>
-           <y>150</y>
-           <width>321</width>
+           <x>170</x>
+           <y>142</y>
+           <width>281</width>
            <height>31</height>
           </rect>
          </property>
@@ -1847,15 +1826,37 @@ color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="placeholderText">
-          <string>Enter engineer phone</string>
+          <string>Enter current engineer e-mail</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="add_eng_btn_2">
+        <widget class="QLineEdit" name="eng_phone0">
          <property name="geometry">
           <rect>
-           <x>500</x>
-           <y>190</y>
-           <width>75</width>
+           <x>170</x>
+           <y>182</y>
+           <width>281</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter current engineer phone</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="edit_eng_btn">
+         <property name="geometry">
+          <rect>
+           <x>304</x>
+           <y>230</y>
+           <width>141</width>
            <height>31</height>
           </rect>
          </property>
@@ -1866,14 +1867,14 @@ color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="text">
-          <string>Submit</string>
+          <string>Edit Engineer</string>
          </property>
         </widget>
         <widget class="QLabel" name="EngSSN_2">
          <property name="geometry">
           <rect>
-           <x>30</x>
-           <y>37</y>
+           <x>20</x>
+           <y>69</y>
            <width>121</width>
            <height>16</height>
           </rect>
@@ -1885,8 +1886,8 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="EngName_2">
          <property name="geometry">
           <rect>
-           <x>30</x>
-           <y>76</y>
+           <x>20</x>
+           <y>108</y>
            <width>121</width>
            <height>16</height>
           </rect>
@@ -1898,8 +1899,8 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="EngEmail_2">
          <property name="geometry">
           <rect>
-           <x>30</x>
-           <y>118</y>
+           <x>20</x>
+           <y>150</y>
            <width>131</width>
            <height>16</height>
           </rect>
@@ -1911,8 +1912,8 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="EngPhone_2">
          <property name="geometry">
           <rect>
-           <x>30</x>
-           <y>158</y>
+           <x>20</x>
+           <y>190</y>
            <width>131</width>
            <height>16</height>
           </rect>
@@ -1921,6 +1922,211 @@ color: rgb(255, 255, 255);</string>
           <string>Engineer Phone:</string>
          </property>
         </widget>
+        <widget class="QLineEdit" name="eng_ssn1">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>62</y>
+           <width>291</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter new engineer SSN</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="eng_mail1">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>142</y>
+           <width>291</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter new engineer e-mail</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="eng_phone1">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>182</y>
+           <width>291</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter new engineer phone</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="eng_name1">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>102</y>
+           <width>291</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter new engineer name</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="CurrentEng">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>30</y>
+           <width>81</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="text">
+          <string>Current</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="NewEng">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>30</y>
+           <width>51</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="text">
+          <string>New</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>23</y>
+          <width>461</width>
+          <height>501</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="view_eng_btn">
+           <property name="text">
+            <string>View Engineers</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QTableWidget" name="eng_table">
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <column>
+            <property name="text">
+             <string>SSN</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Name</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Phone</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>E-mail</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+             </font>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_9">
