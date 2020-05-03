@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType
+import qdarkstyle
 import mysql.connector
 # import MySQLdb
 
@@ -37,51 +38,42 @@ class MainApp(QMainWindow, ui):
         QMainWindow.__init__(self)
         self.setupUi(self)
 
-        self.Handel_UI_changes()
         self.Handel_buttons()
-        self.Dark_orange_theme()
 
         self.show_cmms()
         self.show_category_combobox()
         self.show_engineer_combobox()
         self.show_vendor_combobox()
-
-    def Handel_UI_changes(self):
-        self.Hiding_Themes()
-        self.tabWidget.tabBar().setVisible(False)
     
     def Handel_buttons(self):
-        self.themes_btn.clicked.connect(self.Show_Themes)
-        self.hidethemes_btn.clicked.connect(self.Hiding_Themes)
+        self.tabWidget.tabBar().setVisible(False)
+        # self.themes_btn.clicked.connect(self.Show_Themes)
+        # self.hidethemes_btn.clicked.connect(self.Hiding_Themes)
         self.pushButton.clicked.connect(self.open_day_to_day_tab)
         self.pushButton_2.clicked.connect(self.open_books_tab)
         self.user_tab.clicked.connect(self.open_users_tab)
         self.more_info_tab.clicked.connect(self.open_info_tab)
         self.pushButton_8.clicked.connect(self.Add_new_book)
+
         self.add_cat_btn.clicked.connect(self.Add_category)
         self.view_cat_btn.clicked.connect(self.show_category)
         self.edit_cat_btn.clicked.connect(self.Edit_category)
-        self.dark_orange.clicked.connect(self.Dark_orange_theme)
-        self.dark_blue.clicked.connect(self.Dark_blue_Theme)
-        self.dark_grey.clicked.connect(self.Dark_gray_theme)
-        self.dark.clicked.connect(self.qdark_theme)
+
         self.add_user_btn.clicked.connect(self.Add_new_user)
         self.user_login_btn.clicked.connect(self.login)
         self.edit_user_btn.clicked.connect(self.Edit_user)
+
         self.add_equip_btn.clicked.connect(self.Add_equipment)
         self.view_equip_btn.clicked.connect(self.show_equipment)
         self.del_equip_btn.clicked.connect(self.delete_equipment)
+
         self.add_eng_btn.clicked.connect(self.Add_engineer)
         self.view_eng_btn.clicked.connect(self.show_engineer)
         self.edit_eng_btn.clicked.connect(self.Edit_engineer)
+
         self.add_vendor_btn.clicked.connect(self.Add_vendor)
         self.view_vendor_btn.clicked.connect(self.show_vendor)
         #self.edit_vendor_btn.clicked.connect(self.Edit_vendor)
-
-    def Show_Themes(self):
-        self.groupBox_4.show()
-    def Hiding_Themes(self):
-        self.groupBox_4.hide()
 
     # TABS
     def open_day_to_day_tab(self):
@@ -377,26 +369,9 @@ class MainApp(QMainWindow, ui):
         for vendor in data:
             self.vendor_combo.addItem(vendor[0])
 
-    # UI Themes
-    def Dark_blue_Theme(self):
-        style = open('themes/darkblue.css', 'r')
-        style = style.read()
-        self.setStyleSheet(style)
-    def Dark_gray_theme(self):
-        style = open('themes/darkgray.css', 'r')
-        style = style.read()
-        self.setStyleSheet(style)
-    def Dark_orange_theme(self):
-        style = open('themes/darkorange.css', 'r')
-        style = style.read()
-        self.setStyleSheet(style)
-    def qdark_theme(self):
-        style = open('themes/qdark.css', 'r')
-        style = style.read()
-        self.setStyleSheet(style)
-
 def main():
     app = QApplication(sys.argv)
+    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = login()
     window.show()
     app.exec_()
