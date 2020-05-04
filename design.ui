@@ -3480,6 +3480,12 @@
      <layout class="QGridLayout" name="gridLayout_4">
       <item row="0" column="0">
        <widget class="QPushButton" name="cmms_tab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Courier New</family>
@@ -3490,8 +3496,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icons.qrc">
-          <normaloff>:/icons/today.png</normaloff>:/icons/today.png</iconset>
+         <iconset>
+          <normaloff>icons/cmms.png</normaloff>icons/cmms.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -3503,6 +3509,12 @@
       </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="equipment_tab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Courier New</family>
@@ -3513,8 +3525,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icons.qrc">
-          <normaloff>:/icons/books.png</normaloff>:/icons/books.png</iconset>
+         <iconset>
+          <normaloff>icons/equipment.png</normaloff>icons/equipment.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -3526,6 +3538,12 @@
       </item>
       <item row="3" column="0">
        <widget class="QPushButton" name="more_info_tab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Courier New</family>
@@ -3536,8 +3554,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icons.qrc">
-          <normaloff>:/icons/settings.jpg</normaloff>:/icons/settings.jpg</iconset>
+         <iconset>
+          <normaloff>icons/info.png</normaloff>icons/info.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -3549,6 +3567,12 @@
       </item>
       <item row="2" column="0">
        <widget class="QPushButton" name="user_tab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Courier New</family>
@@ -3572,6 +3596,12 @@
       </item>
       <item row="5" column="0">
        <widget class="QPushButton" name="reports_tab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Courier New</family>
@@ -3582,8 +3612,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icons.qrc">
-          <normaloff>:/icons/themes.png</normaloff>:/icons/themes.png</iconset>
+         <iconset>
+          <normaloff>icons/reports.png</normaloff>icons/reports.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -3595,8 +3625,24 @@
       </item>
       <item row="4" column="0">
        <widget class="QPushButton" name="tracking_tab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="text">
-         <string>Tracking</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>icons/tracking.png</normaloff>icons/tracking.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>60</width>
+          <height>60</height>
+         </size>
         </property>
        </widget>
       </item>
