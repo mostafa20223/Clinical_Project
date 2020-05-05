@@ -33,6 +33,15 @@
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>10</number>
+        </property>
         <item row="0" column="0">
          <widget class="QLabel" name="UserName">
           <property name="font">
@@ -43,6 +52,19 @@
           </property>
           <property name="text">
            <string>User Name:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="UserPassword">
+          <property name="font">
+           <font>
+            <family>Courier New</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>User Password:</string>
           </property>
          </widget>
         </item>
@@ -62,8 +84,8 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="UserPassword">
+        <item row="2" column="1">
+         <widget class="QPushButton" name="login_btn">
           <property name="font">
            <font>
             <family>Courier New</family>
@@ -71,7 +93,7 @@
            </font>
           </property>
           <property name="text">
-           <string>User Password:</string>
+           <string>Login</string>
           </property>
          </widget>
         </item>
@@ -91,19 +113,6 @@
           </property>
           <property name="placeholderText">
            <string>Enter password</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="login_btn">
-          <property name="font">
-           <font>
-            <family>Courier New</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Login</string>
           </property>
          </widget>
         </item>

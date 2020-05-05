@@ -78,6 +78,7 @@ class MainApp(QMainWindow, ui):
         self.add_ppm_btn.clicked.connect(self.Add_ppm)
         self.view_ppm_btn0.clicked.connect(self.show_ppm)
 
+        self.category_combo0.currentTextChanged.connect(self.show_ppm_combo)
         # self.ppm_save_btn.clicked.connect(self.save_ppm)
         # self.repair_save_btn.clicked.connect(self.save_repair)
         # self.inst_save_btn.clicked.connect(self.save_installation)
@@ -151,10 +152,10 @@ class MainApp(QMainWindow, ui):
     def show_cmms(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        self.cur.execute(''' SELECT serial_number, equipment_name, equipment_code, work_time, insurance, maintenance, price, cat_name, ssn, eng_name, eng_phone, eng_email
+        self.cur.execute(''' SELECT serial_number, equipment_name, equipment_code, portable, work_time, insurance, maintenance, price, cat_name
         FROM equipment
-        INNER JOIN category ON cat_name = name
-        INNER JOIN engineer ON equip_sn = serial_number ''')
+        FULL JOIN category ON cat_name = name
+        ORDER BY serial_number ''')
         data = self.cur.fetchall()
 
         if data:
@@ -436,12 +437,13 @@ class MainApp(QMainWindow, ui):
         equip_sn = self.equipsn_combo0.currentText()
         equip_name = self.equipname_combo.currentText()
         equip_code = self.equipcode_combo.currentText()
+        category_name = self.category_combo3.currentText()
         tech_name = self.tech_name.text()
         ppm_time = self.ppm_time.text()
         ppm_year = self.ppm_year.text()
-        error = self.error.text()
-        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, technician_name, ppm_time, ppm_year, error) VALUES (%s, %s, %s, %s, %s, %s, %s) '''
-                         , (equip_sn, equip_name, equip_code, tech_name, ppm_time, ppm_year, error))
+        error = self.error_combo.currentText()
+        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, CATEGORY, technician_name, ppm_time, ppm_year, ERROR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) '''
+                         , (equip_sn, equip_name, equip_code, category_name, tech_name, ppm_time, ppm_year, error))
         self.db.commit()
         self.statusBar().showMessage('New PPM Added')
         self.show_ppm()
@@ -462,16 +464,101 @@ class MainApp(QMainWindow, ui):
                 row_position = self.ppm_table0.rowCount()
                 self.ppm_table0.insertRow(row_position)
 
+    def show_ppm_combo(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        ppm_combo = self.category_combo0.currentText()
+        self.cur.execute(''' SELECT EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, CATEGORY, technician_name, ppm_time, ppm_year
+        FROM equipment_ppm
+        INNER JOIN category ON name = %s ''', (ppm_combo))
+        data = self.cur.fetchall()
+
+        if data:
+            self.ppm_table.setRowCount(0)
+            self.ppm_table.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.ppm_table.setItem(row, column, QTableWidgetItem(str(item)))
+                    column += 1
+                row_position = self.ppm_table.rowCount()
+                self.ppm_table.insertRow(row_position)        ;
+
     def save_ppm(self):
         ppm_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
         PPM = sql.read_sql('SELECT * FROM engineer', ppm_con)
         print(PPM)
         # df.to_excel('ds.xlsx')
+
+    def Add_repair(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        equip_sn = self.equipsn_combo0.currentText()
+        equip_name = self.equipname_combo.currentText()
+        equip_code = self.equipcode_combo.currentText()
+        tech_name = self.tech_name.text()
+        ppm_time = self.ppm_time.text()
+        ppm_year = self.ppm_year.text()
+        error = self.error.text()
+        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, technician_name, ppm_time, ppm_year, error) VALUES (%s, %s, %s, %s, %s, %s, %s) '''
+                         , (equip_sn, equip_name, equip_code, tech_name, ppm_time, ppm_year, error))
+        self.db.commit()
+        self.statusBar().showMessage('New PPM Added')
+        self.show_ppm()
+
+    def show_repair(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        self.cur.execute(''' SELECT * FROM equipment_ppm ''')
+        data = self.cur.fetchall()
+
+        if data:
+            self.ppm_table0.setRowCount(0)
+            self.ppm_table0.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.ppm_table0.setItem(row, column, QTableWidgetItem(str(item)))
+                    column += 1
+                row_position = self.ppm_table0.rowCount()
+                self.ppm_table0.insertRow(row_position)
+
     def save_repair(self):
         repair_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
         REPAIR = sql.read_sql('SELECT * FROM engineer', repair_con)
         print(REPAIR)
         # df.to_excel('ds.xlsx')
+
+    def Add_installation(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        equip_sn = self.equipsn_combo0.currentText()
+        equip_name = self.equipname_combo.currentText()
+        equip_code = self.equipcode_combo.currentText()
+        tech_name = self.tech_name.text()
+        ppm_time = self.ppm_time.text()
+        ppm_year = self.ppm_year.text()
+        error = self.error.text()
+        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, technician_name, ppm_time, ppm_year, error) VALUES (%s, %s, %s, %s, %s, %s, %s) '''
+                         , (equip_sn, equip_name, equip_code, tech_name, ppm_time, ppm_year, error))
+        self.db.commit()
+        self.statusBar().showMessage('New PPM Added')
+        self.show_ppm()
+
+    def show_installation(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        self.cur.execute(''' SELECT * FROM equipment_ppm ''')
+        data = self.cur.fetchall()
+
+        if data:
+            self.ppm_table0.setRowCount(0)
+            self.ppm_table0.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.ppm_table0.setItem(row, column, QTableWidgetItem(str(item)))
+                    column += 1
+                row_position = self.ppm_table0.rowCount()
+                self.ppm_table0.insertRow(row_position)
+
     def save_installation(self):
         installation_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
         INSTALLATION = sql.read_sql('SELECT * FROM engineer', installation_con)

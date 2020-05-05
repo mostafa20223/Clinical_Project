@@ -27,7 +27,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="movable">
        <bool>false</bool>
@@ -68,6 +68,16 @@
           <column>
            <property name="text">
             <string>Equip Code</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Portable</string>
            </property>
            <property name="font">
             <font>
@@ -118,46 +128,6 @@
           <column>
            <property name="text">
             <string>Category Name</string>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-            </font>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Eng SSN</string>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-            </font>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Eng Name</string>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-            </font>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Eng Phone</string>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-            </font>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Eng Email</string>
            </property>
            <property name="font">
             <font>
@@ -2654,16 +2624,6 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Price</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
                   <string>Category Name</string>
                  </property>
                  <property name="font">
@@ -3065,7 +3025,7 @@
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QTableWidget" name="repair_save_btn0">
+               <widget class="QTableWidget" name="repair_table0">
                 <property name="font">
                  <font>
                   <family>Courier New</family>
