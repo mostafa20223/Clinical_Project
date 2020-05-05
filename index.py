@@ -1,12 +1,10 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import sys
 from PyQt5.uic import loadUiType
 from pymysql import *
-import xlwt
-import qdarkstyle
-import mysql.connector
+import pandas.io.sql as sql
+import sys, xlwt, qdarkstyle, mysql.connector
 # import MySQLdb
 
 ui,_ = loadUiType('design.ui')
@@ -33,7 +31,6 @@ class login(QWidget, login):
                 self.window2.show()
             else:
                 self.login_failed.setText('Make sure you entered your username and password correctly')
-
 
 class MainApp(QMainWindow, ui):
     def __init__(self):
@@ -80,6 +77,11 @@ class MainApp(QMainWindow, ui):
 
         self.add_ppm_btn.clicked.connect(self.Add_ppm)
         self.view_ppm_btn0.clicked.connect(self.show_ppm)
+
+        # self.ppm_save_btn.clicked.connect(self.save_ppm)
+        # self.repair_save_btn.clicked.connect(self.save_repair)
+        # self.inst_save_btn.clicked.connect(self.save_installation)
+
     # TABS
     def open_cmms_tab(self):
         self.tabWidget.setCurrentIndex(0)
@@ -218,6 +220,8 @@ class MainApp(QMainWindow, ui):
             self.category_combo0.addItem(category[0])
             self.category_combo1.addItem(category[0])
             self.category_combo2.addItem(category[0])
+            self.category_combo3.addItem(category[0])
+            self.category_combo4.addItem(category[0])
             self.category_add.addItem(category[0])
             self.category_edit0.addItem(category[0])
 
@@ -301,6 +305,7 @@ class MainApp(QMainWindow, ui):
         for e_sn in data:
             self.equipsn_combo.addItem(e_sn[0])
             self.equipsn_combo0.addItem(e_sn[0])
+            self.equipsn_combo1.addItem(e_sn[0])
 
     # Show Equipment Name in UI
     def show_equipmentName_combobox(self):
@@ -310,6 +315,7 @@ class MainApp(QMainWindow, ui):
         data = self.cur.fetchall()
         for e_sn in data:
             self.equipname_combo.addItem(e_sn[0])
+            self.equipname_combo0.addItem(e_sn[0])
 
     # Show Equipment Code in UI
     def show_equipmentCode_combobox(self):
@@ -319,6 +325,7 @@ class MainApp(QMainWindow, ui):
         data = self.cur.fetchall()
         for e_sn in data:
             self.equipcode_combo.addItem(e_sn[0])
+            self.equipcode_combo0.addItem(e_sn[0])
 
     # Engineer
     def Add_engineer(self):
@@ -454,7 +461,23 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.ppm_table0.rowCount()
                 self.ppm_table0.insertRow(row_position)
-        
+
+    def save_ppm(self):
+        ppm_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
+        PPM = sql.read_sql('SELECT * FROM engineer', ppm_con)
+        print(PPM)
+        # df.to_excel('ds.xlsx')
+    def save_repair(self):
+        repair_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
+        REPAIR = sql.read_sql('SELECT * FROM engineer', repair_con)
+        print(REPAIR)
+        # df.to_excel('ds.xlsx')
+    def save_installation(self):
+        installation_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
+        INSTALLATION = sql.read_sql('SELECT * FROM engineer', installation_con)
+        print(INSTALLATION)
+        # df.to_excel('ds.xlsx')
+
 def main():
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
@@ -474,16 +497,3 @@ if __name__=='__main__':
 #INNER JOIN cmms.category ON cat_name = name;
 
 #DELETE FROM table_name WHERE condition;
-
-# # import the modules
-# from pymysql import*
-# import xlwt
-# import pandas.io.sql as sql
-# # connect the mysql with the python
-# con=connect(user="root",password="apoo06",host="localhost",database="ds")
-# # read the data
-# df=sql.read_sql('select * from emp',con)
-# # print the data
-# print(df)
-# # export the data into the excel sheet
-# df.to_excel('ds.xls')

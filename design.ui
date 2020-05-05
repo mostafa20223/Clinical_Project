@@ -27,7 +27,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="movable">
        <bool>false</bool>
@@ -187,7 +187,7 @@
             <string>Add/Delete Equipment</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_25">
-            <item row="0" column="0">
+            <item row="0" column="0" rowspan="2">
              <layout class="QGridLayout" name="gridLayout_9">
               <item row="0" column="0">
                <widget class="QPushButton" name="view_equip_btn">
@@ -304,72 +304,12 @@
                <string>Add Equipment</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_11">
-               <item row="0" column="0">
-                <layout class="QVBoxLayout" name="verticalLayout_2">
-                 <item>
-                  <widget class="QLabel" name="EquipmentSN">
-                   <property name="text">
-                    <string>Equipment SN:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="EquipmentName">
-                   <property name="text">
-                    <string>Equipment Name:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="EquipmentCode">
-                   <property name="text">
-                    <string>Equipment Code:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="Portable">
-                   <property name="text">
-                    <string>Portable:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="EquipmentWT">
-                   <property name="text">
-                    <string>Work Time:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="EquipmentInsurance">
-                   <property name="text">
-                    <string>Insurance:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="EquipmentMaintenance">
-                   <property name="text">
-                    <string>Maintenance:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="EquipmentPrice">
-                   <property name="text">
-                    <string>Equipment Price:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="CategoryName0">
-                   <property name="text">
-                    <string>Category Name:</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="add_equip_btn">
+                 <property name="text">
+                  <string>Add Equipment</string>
+                 </property>
+                </widget>
                </item>
                <item row="0" column="1">
                 <layout class="QVBoxLayout" name="verticalLayout">
@@ -501,53 +441,113 @@
                  </item>
                 </layout>
                </item>
-               <item row="1" column="1">
-                <widget class="QPushButton" name="add_equip_btn">
+               <item row="0" column="0">
+                <layout class="QVBoxLayout" name="verticalLayout_2">
+                 <item>
+                  <widget class="QLabel" name="EquipmentSN">
+                   <property name="text">
+                    <string>Equipment SN:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="EquipmentName">
+                   <property name="text">
+                    <string>Equipment Name:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="EquipmentCode">
+                   <property name="text">
+                    <string>Equipment Code:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="Portable">
+                   <property name="text">
+                    <string>Portable:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="EquipmentWT">
+                   <property name="text">
+                    <string>Work Time:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="EquipmentInsurance">
+                   <property name="text">
+                    <string>Insurance:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="EquipmentMaintenance">
+                   <property name="text">
+                    <string>Maintenance:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="EquipmentPrice">
+                   <property name="text">
+                    <string>Equipment Price:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="CategoryName0">
+                   <property name="text">
+                    <string>Category Name:</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QGroupBox" name="EquipmentDel">
+              <property name="title">
+               <string>Delete Equipment</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="0" column="0">
+                <widget class="QLabel" name="EquipmentCode0">
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
                  <property name="text">
-                  <string>Add Equipment</string>
+                  <string>Equipment Code:</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0" colspan="2">
-                <widget class="QGroupBox" name="EquipmentDel">
-                 <property name="title">
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="equip_code0">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <italic>true</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Enter code of equipment to delete eg. 0000</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="del_equip_btn">
+                 <property name="text">
                   <string>Delete Equipment</string>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_10">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="EquipmentCode0">
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Equipment Code:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="equip_code0">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <italic>true</italic>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Enter code of equipment to delete</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QPushButton" name="del_equip_btn">
-                    <property name="text">
-                     <string>Delete Equipment</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
                 </widget>
                </item>
               </layout>
@@ -778,8 +778,16 @@
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Plain</enum>
                  </property>
                  <property name="text">
                   <string>Current</string>
@@ -794,8 +802,16 @@
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Plain</enum>
                  </property>
                  <property name="text">
                   <string>New</string>
@@ -1490,7 +1506,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter category name</string>
+                  <string>Enter category name eg. Hemodialysis</string>
                  </property>
                 </widget>
                </item>
@@ -1519,7 +1535,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter category floor</string>
+                  <string>Enter category floor eg. 1</string>
                  </property>
                 </widget>
                </item>
@@ -1563,7 +1579,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter current category name</string>
+                  <string>Enter current category name eg. Hemodialysis</string>
                  </property>
                 </widget>
                </item>
@@ -1592,7 +1608,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter current category floor</string>
+                  <string>Enter current category floor eg. 1</string>
                  </property>
                 </widget>
                </item>
@@ -1621,7 +1637,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new category name</string>
+                  <string>Enter new category name eg. Hemodialysis</string>
                  </property>
                 </widget>
                </item>
@@ -1650,7 +1666,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new category floor</string>
+                  <string>Enter new category floor eg. 1</string>
                  </property>
                 </widget>
                </item>
@@ -1708,7 +1724,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter engineer phone</string>
+                  <string>Enter engineer phone eg. 1098961492</string>
                  </property>
                 </widget>
                </item>
@@ -1738,7 +1754,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter engineer e-mail</string>
+                  <string>Enter engineer e-mail eg. mustafayehia4@gmail.com</string>
                  </property>
                 </widget>
                </item>
@@ -1761,7 +1777,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter engineer SSN</string>
+                  <string>Enter engineer SSN eg. 29903230103673</string>
                  </property>
                 </widget>
                </item>
@@ -1777,7 +1793,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter engineer name</string>
+                  <string>Enter engineer name eg. Mostafa</string>
                  </property>
                 </widget>
                </item>
@@ -1939,7 +1955,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter current engineer SSN</string>
+                  <string>Enter current engineer SSN eg. 29903230103673</string>
                  </property>
                 </widget>
                </item>
@@ -1967,7 +1983,7 @@
                   <bool>false</bool>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::Box</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Plain</enum>
@@ -2001,7 +2017,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new engineer e-mail</string>
+                  <string>Enter new engineer e-mail eg. mustafayehia4@gmail.com</string>
                  </property>
                 </widget>
                </item>
@@ -2019,7 +2035,7 @@
                   </font>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::Box</enum>
                  </property>
                  <property name="text">
                   <string>New</string>
@@ -2044,7 +2060,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new engineer name</string>
+                  <string>Enter new engineer name eg. Mostafa</string>
                  </property>
                 </widget>
                </item>
@@ -2066,7 +2082,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new engineer SSN</string>
+                  <string>Enter new engineer SSN eg. 29903230103673</string>
                  </property>
                 </widget>
                </item>
@@ -2116,7 +2132,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new engineer phone</string>
+                  <string>Enter new engineer phone eg. 1098961492</string>
                  </property>
                 </widget>
                </item>
@@ -2241,7 +2257,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter vendor SSN</string>
+                  <string>Enter vendor SSN eg. 29903230103673</string>
                  </property>
                 </widget>
                </item>
@@ -2264,7 +2280,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter vendor name</string>
+                  <string>Enter vendor name eg. Mostafa</string>
                  </property>
                 </widget>
                </item>
@@ -2287,7 +2303,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter vendor e-mail</string>
+                  <string>Enter vendor e-mail eg. mustafayehia4@gmail.com</string>
                  </property>
                 </widget>
                </item>
@@ -2310,7 +2326,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter vendor phone</string>
+                  <string>Enter vendor phone eg. 1098961492</string>
                  </property>
                 </widget>
                </item>
@@ -2359,7 +2375,7 @@
                   <bool>false</bool>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::Box</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Plain</enum>
@@ -2407,7 +2423,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new vendor phone</string>
+                  <string>Enter new vendor phone eg. 1098961492</string>
                  </property>
                 </widget>
                </item>
@@ -2429,7 +2445,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter current vendor SSN</string>
+                  <string>Enter current vendor SSN eg. 29903230103673</string>
                  </property>
                 </widget>
                </item>
@@ -2465,7 +2481,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new vendor SSN</string>
+                  <string>Enter new vendor SSN eg. 29903230103673</string>
                  </property>
                 </widget>
                </item>
@@ -2483,7 +2499,7 @@
                   </font>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::Box</enum>
                  </property>
                  <property name="text">
                   <string>New</string>
@@ -2508,7 +2524,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new vendor name</string>
+                  <string>Enter new vendor name eg. Mostafa</string>
                  </property>
                 </widget>
                </item>
@@ -2537,7 +2553,7 @@
                   </font>
                  </property>
                  <property name="placeholderText">
-                  <string>Enter new vendor e-mail</string>
+                  <string>Enter new vendor e-mail eg. mustafayehia4@gmail.com</string>
                  </property>
                 </widget>
                </item>
@@ -2762,62 +2778,85 @@
                 </widget>
                </item>
                <item row="3" column="0">
+                <widget class="QLabel" name="Category">
+                 <property name="text">
+                  <string>Category Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="category_combo3">
+                 <item>
+                  <property name="text">
+                   <string>Select Category</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="0">
                 <widget class="QLabel" name="TechName">
                  <property name="text">
                   <string>Technician Name:</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
+               <item row="4" column="1">
                 <widget class="QLineEdit" name="tech_name">
                  <property name="placeholderText">
-                  <string>Enter technician name</string>
+                  <string>Enter technician name eg. Ahmed</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0">
+               <item row="5" column="0">
                 <widget class="QLabel" name="PPMTime">
                  <property name="text">
                   <string>PPM Time:</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="1">
+               <item row="5" column="1">
                 <widget class="QLineEdit" name="ppm_time">
                  <property name="placeholderText">
-                  <string>Enter time for ppm</string>
+                  <string>Enter time for ppm eg. 2020-03-23 04:00:00</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
+               <item row="6" column="0">
                 <widget class="QLabel" name="PPMYear">
                  <property name="text">
                   <string>PPM/Year:</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="1">
+               <item row="6" column="1">
                 <widget class="QLineEdit" name="ppm_year">
                  <property name="placeholderText">
-                  <string>Enter number of ppm per years</string>
+                  <string>Enter number of ppm per years eg. 22</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="0">
+               <item row="7" column="0">
                 <widget class="QLabel" name="Error">
                  <property name="text">
                   <string>Error:</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="1">
-                <widget class="QLineEdit" name="error">
-                 <property name="placeholderText">
-                  <string>Enter error if exist Default: None</string>
-                 </property>
+               <item row="7" column="1">
+                <widget class="QComboBox" name="error_combo">
+                 <item>
+                  <property name="text">
+                   <string>Select Error</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>None</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
-               <item row="7" column="1">
+               <item row="8" column="1">
                 <widget class="QPushButton" name="add_ppm_btn">
                  <property name="text">
                   <string>Add PPM</string>
@@ -2833,9 +2872,188 @@
            <attribute name="title">
             <string>Repair</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_42">
+           <layout class="QGridLayout" name="gridLayout_49">
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_43"/>
+            </item>
+            <item row="0" column="1" rowspan="2">
+             <widget class="QGroupBox" name="repair">
+              <property name="title">
+               <string>Repair Details</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_42">
+               <item row="0" column="0">
+                <widget class="QLabel" name="EquipmentSN2">
+                 <property name="text">
+                  <string>Equipment SN:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="equipsn_combo1">
+                 <item>
+                  <property name="text">
+                   <string>Select SN</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="EquipmentName1">
+                 <property name="text">
+                  <string>Equipment Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="equipname_combo0">
+                 <item>
+                  <property name="text">
+                   <string>Select Equipment Name</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="EquipmentCode2">
+                 <property name="text">
+                  <string>Equipment Code:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="equipcode_combo0">
+                 <item>
+                  <property name="text">
+                   <string>Select Equipment Code</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="Category0">
+                 <property name="text">
+                  <string>Category Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="category_combo4">
+                 <item>
+                  <property name="text">
+                   <string>Select Category</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="TechName0">
+                 <property name="text">
+                  <string>Technician Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="tech_name0">
+                 <property name="placeholderText">
+                  <string>Enter technician name eg. Eslam</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="Error0">
+                 <property name="text">
+                  <string>Error:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="error">
+                 <property name="placeholderText">
+                  <string>Enter cause of error eg. Power Cable, Filter...</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="FicedORNot">
+                 <property name="text">
+                  <string>Fixed/Not:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QComboBox" name="fixed_combo">
+                 <item>
+                  <property name="text">
+                   <string>State Fixed or Not</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Yes</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>No</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="RepairTime">
+                 <property name="text">
+                  <string>Repair Time:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLineEdit" name="repair_time">
+                 <property name="placeholderText">
+                  <string>Enter time of repair eg. 2020-03-23 03:00:00</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="RepairType">
+                 <property name="text">
+                  <string>Repair Type:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QLineEdit" name="repair_type">
+                 <property name="placeholderText">
+                  <string>Enter way of repair error eg. Replace Filter...</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="Cost">
+                 <property name="text">
+                  <string>Cost:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QLineEdit" name="repair_cost">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Enter cost eg. 2500</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QPushButton" name="add_repair_btn">
+                 <property name="text">
+                  <string>Add Repair</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </item>
             <item row="1" column="0">
              <layout class="QGridLayout" name="gridLayout_44">
@@ -2899,6 +3117,16 @@
                 </column>
                 <column>
                  <property name="text">
+                  <string>Technician Name</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Courier New</family>
+                  </font>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>Error</string>
                  </property>
                  <property name="font">
@@ -2919,16 +3147,6 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Technician Name</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
                   <string>Repair Time</string>
                  </property>
                  <property name="font">
@@ -2939,7 +3157,7 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>New Column</string>
+                  <string>Repair Type</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3255,7 +3473,7 @@
             <item row="1" column="0">
              <layout class="QGridLayout" name="gridLayout_29">
               <item row="0" column="0">
-               <widget class="QTableWidget" name="repair_save_btn">
+               <widget class="QTableWidget" name="repair_table">
                 <property name="font">
                  <font>
                   <family>Courier New</family>
@@ -3368,7 +3586,7 @@
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QPushButton" name="repair_save_btn_2">
+               <widget class="QPushButton" name="repair_save_btn">
                 <property name="text">
                  <string>Save</string>
                 </property>
