@@ -270,10 +270,11 @@ class MainApp(QMainWindow, ui):
     def delete_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        equipment_code = self.equip_code0.text()
-        self.cur.execute(''' DELETE FROM equipment WHERE equipment_code = %s '''
-                         , equipment_code)
+        sql = "DELETE FROM equipment WHERE serial_number = %s"
+        adr = (self.equip_sn3.text(), )
+        self.cur.execute(sql, adr)
         self.db.commit()
+        self.statusBar().showMessage('Equipment Deleted')
         self.show_equipment()
         self.show_equipmentSN_combobox()
 
@@ -442,7 +443,7 @@ class MainApp(QMainWindow, ui):
         ppm_time = self.ppm_time.text()
         ppm_year = self.ppm_year.text()
         error = self.error_combo.currentText()
-        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, CATEGORY, technician_name, ppm_time, ppm_year, ERROR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) '''
+        self.cur.execute(''' INSERT INTO equipment_ppm (EQU_SN, EQU_NAME, EQU_CODE, CATEGORY, technician_name, ppm_time, ppm_year, ERROR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) '''
                          , (equip_sn, equip_name, equip_code, category_name, tech_name, ppm_time, ppm_year, error))
         self.db.commit()
         self.statusBar().showMessage('New PPM Added')
@@ -466,11 +467,11 @@ class MainApp(QMainWindow, ui):
 
     def show_ppm_combo(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
-        self.cur = self.db.cursor()
-        ppm_combo = self.category_combo0.currentText()
-        self.cur.execute(''' SELECT EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, CATEGORY, technician_name, ppm_time, ppm_year
-        FROM equipment_ppm
-        INNER JOIN category ON name = %s ''', (ppm_combo))
+        self.cur = self.db.cursor() 
+        sql = "SELECT serial_number, equipment_name, equipment_code FROM equipment INNER JOIN equipment_ppm ON CATEGORY = %s"    
+        # sql = "SELECT EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, CATEGORY, technician_name, ppm_time, ppm_year FROM equipment_ppm JOIN category WHERE name = %s"
+        adr = (self.category_combo0.currentText(), )
+        self.cur.execute(sql, adr)
         data = self.cur.fetchall()
 
         if data:
