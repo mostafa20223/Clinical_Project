@@ -624,7 +624,7 @@ class MainApp(QMainWindow, ui):
     def show_installation_combo(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        sql = "SELECT equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost FROM equipment_repair JOIN equipment ON Categ_Name = cat_name WHERE Categ_Name = %s GROUP BY equip_serial;"
+        sql = "SELECT Equ_SN, Equ_Name, Equ_Code, catName, techName, installation_time, equipment_model FROM equipment_installation JOIN equipment ON catName = cat_name WHERE catName = %s GROUP BY Equ_SN;"
         adr = (self.category_combo2.currentText(), )
         self.cur.execute(sql, adr)
         data = self.cur.fetchall()
@@ -643,7 +643,7 @@ class MainApp(QMainWindow, ui):
         self.remove_installation()
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()        
-        sql_add = "INSERT INTO repair_save SELECT equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost FROM equipment_repair JOIN equipment ON Categ_Name = cat_name WHERE Categ_Name = %s GROUP BY equip_serial;"
+        sql_add = "INSERT INTO installation_save SELECT Equ_SN, Equ_Name, Equ_Code, catName, techName, installation_time, equipment_model FROM equipment_installation JOIN equipment ON catName = cat_name WHERE catName = %s GROUP BY Equ_SN;"
         adr = (self.category_combo2.currentText(), )
         self.cur.execute(sql_add, adr)
         df = sql.read_sql('SELECT * FROM installation_save', self.db)
@@ -653,7 +653,7 @@ class MainApp(QMainWindow, ui):
     def remove_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  
-        self.cur.execute(''' TRUNCATE TABLE repair_save ''')
+        self.cur.execute(''' TRUNCATE TABLE installation_save ''')
 
 def main():
     app = QApplication(sys.argv)
