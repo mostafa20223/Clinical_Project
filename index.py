@@ -43,6 +43,7 @@ class MainApp(QMainWindow, ui):
         self.show_equipmentName_combobox()
         self.show_equipmentCode_combobox()
         self.show_vendorSSN_combobox()
+        self.show_error_combobox()
     
     def Handel_buttons(self):
         self.tabWidget.tabBar().setVisible(False)
@@ -77,11 +78,18 @@ class MainApp(QMainWindow, ui):
 
         self.add_ppm_btn.clicked.connect(self.Add_ppm)
         self.view_ppm_btn0.clicked.connect(self.show_ppm)
-
         self.category_combo0.currentTextChanged.connect(self.show_ppm_combo)
-        # self.ppm_save_btn.clicked.connect(self.save_ppm)
-        # self.repair_save_btn.clicked.connect(self.save_repair)
-        # self.inst_save_btn.clicked.connect(self.save_installation)
+        self.ppm_save_btn.clicked.connect(self.save_ppm)
+
+        self.add_repair_btn.clicked.connect(self.Add_repair)
+        self.view_repair_btn0.clicked.connect(self.show_repair)
+        self.category_combo1.currentTextChanged.connect(self.show_repair_combo)
+        self.repair_save_btn.clicked.connect(self.save_repair)
+
+        self.add_installation_btn.clicked.connect(self.Add_installation)
+        self.view_inst_btn0.clicked.connect(self.show_installation)
+        self.category_combo2.currentTextChanged.connect(self.show_installation_combo)
+        self.inst_save_btn.clicked.connect(self.save_installation)
 
     # TABS
     def open_cmms_tab(self):
@@ -223,6 +231,7 @@ class MainApp(QMainWindow, ui):
             self.category_combo2.addItem(category[0])
             self.category_combo3.addItem(category[0])
             self.category_combo4.addItem(category[0])
+            self.category_combo5.addItem(category[0])
             self.category_add.addItem(category[0])
             self.category_edit0.addItem(category[0])
 
@@ -308,6 +317,7 @@ class MainApp(QMainWindow, ui):
             self.equipsn_combo.addItem(e_sn[0])
             self.equipsn_combo0.addItem(e_sn[0])
             self.equipsn_combo1.addItem(e_sn[0])
+            self.equipsn_combo2.addItem(e_sn[0])
 
     # Show Equipment Name in UI
     def show_equipmentName_combobox(self):
@@ -318,6 +328,7 @@ class MainApp(QMainWindow, ui):
         for e_sn in data:
             self.equipname_combo.addItem(e_sn[0])
             self.equipname_combo0.addItem(e_sn[0])
+            self.equipname_combo1.addItem(e_sn[0])
 
     # Show Equipment Code in UI
     def show_equipmentCode_combobox(self):
@@ -328,6 +339,7 @@ class MainApp(QMainWindow, ui):
         for e_sn in data:
             self.equipcode_combo.addItem(e_sn[0])
             self.equipcode_combo0.addItem(e_sn[0])
+            self.equipcode_combo1.addItem(e_sn[0])
 
     # Engineer
     def Add_engineer(self):
@@ -467,9 +479,8 @@ class MainApp(QMainWindow, ui):
 
     def show_ppm_combo(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
-        self.cur = self.db.cursor() 
-        sql = "SELECT serial_number, equipment_name, equipment_code FROM equipment INNER JOIN equipment_ppm ON CATEGORY = %s"    
-        # sql = "SELECT EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, CATEGORY, technician_name, ppm_time, ppm_year FROM equipment_ppm JOIN category WHERE name = %s"
+        self.cur = self.db.cursor()
+        sql = "SELECT EQU_SN, EQU_Name, EQU_Code, CATEGORY, technician_name, ppm_time, ppm_year, ERROR FROM equipment_ppm JOIN equipment ON CATEGORY = cat_name WHERE CATEGORY = %s GROUP BY EQU_SN;"
         adr = (self.category_combo0.currentText(), )
         self.cur.execute(sql, adr)
         data = self.cur.fetchall()
@@ -482,89 +493,167 @@ class MainApp(QMainWindow, ui):
                     self.ppm_table.setItem(row, column, QTableWidgetItem(str(item)))
                     column += 1
                 row_position = self.ppm_table.rowCount()
-                self.ppm_table.insertRow(row_position)        ;
+                self.ppm_table.insertRow(row_position)
 
     def save_ppm(self):
-        ppm_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
-        PPM = sql.read_sql('SELECT * FROM engineer', ppm_con)
-        print(PPM)
-        # df.to_excel('ds.xlsx')
+        self.remove_ppm()
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()        
+        sql_add = "INSERT INTO ppm_save SELECT EQU_SN, EQU_Name, EQU_Code, CATEGORY, technician_name, ppm_time, ppm_year, ERROR FROM equipment_ppm JOIN equipment ON CATEGORY = cat_name WHERE CATEGORY = %s GROUP BY EQU_SN;"
+        adr = (self.category_combo0.currentText(), )
+        self.cur.execute(sql_add, adr)
+        df = sql.read_sql('SELECT * FROM ppm_save', self.db)
+        print(df)
+        df.to_excel('F:/Ubuntu/Clinical_Project/Reports/PPM/ppm.xlsx')
+
+    def remove_ppm(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()  
+        self.cur.execute(''' TRUNCATE TABLE ppm_save ''')
 
     def Add_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        equip_sn = self.equipsn_combo0.currentText()
-        equip_name = self.equipname_combo.currentText()
-        equip_code = self.equipcode_combo.currentText()
-        tech_name = self.tech_name.text()
-        ppm_time = self.ppm_time.text()
-        ppm_year = self.ppm_year.text()
+        equip_sn = self.equipsn_combo1.currentText()
+        equip_name = self.equipname_combo0.currentText()
+        equip_code = self.equipcode_combo0.currentText()
+        cat_name = self.category_combo4.currentText()
+        tech_name = self.tech_name0.text()
         error = self.error.text()
-        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, technician_name, ppm_time, ppm_year, error) VALUES (%s, %s, %s, %s, %s, %s, %s) '''
-                         , (equip_sn, equip_name, equip_code, tech_name, ppm_time, ppm_year, error))
+        fixed = self.fixed_combo.currentText()
+        repair_time = self.repair_time.text()
+        repair_type = self.repair_type.text()
+        cost = self.repair_cost.text()
+        self.cur.execute(''' INSERT INTO equipment_repair (equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) '''
+                         , (equip_sn, equip_name, equip_code, cat_name, tech_name, error, fixed, repair_time, repair_type, cost))
         self.db.commit()
-        self.statusBar().showMessage('New PPM Added')
-        self.show_ppm()
+        self.statusBar().showMessage('New Repair Added')
+        self.show_repair()
 
     def show_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        self.cur.execute(''' SELECT * FROM equipment_ppm ''')
+        self.cur.execute(''' SELECT * FROM equipment_repair ''')
         data = self.cur.fetchall()
 
         if data:
-            self.ppm_table0.setRowCount(0)
-            self.ppm_table0.insertRow(0)
+            self.repair_table0.setRowCount(0)
+            self.repair_table0.insertRow(0)
             for row, form in enumerate(data):
                 for column, item in enumerate(form):
-                    self.ppm_table0.setItem(row, column, QTableWidgetItem(str(item)))
+                    self.repair_table0.setItem(row, column, QTableWidgetItem(str(item)))
                     column += 1
-                row_position = self.ppm_table0.rowCount()
-                self.ppm_table0.insertRow(row_position)
+                row_position = self.repair_table0.rowCount()
+                self.repair_table0.insertRow(row_position)
+
+    def show_repair_combo(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        sql = "SELECT equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost FROM equipment_repair JOIN equipment ON Categ_Name = cat_name WHERE Categ_Name = %s GROUP BY equip_serial;"
+        adr = (self.category_combo1.currentText(), )
+        self.cur.execute(sql, adr)
+        data = self.cur.fetchall()
+
+        if data:
+            self.repair_table.setRowCount(0)
+            self.repair_table.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.repair_table.setItem(row, column, QTableWidgetItem(str(item)))
+                    column += 1
+                row_position = self.repair_table.rowCount()
+                self.repair_table.insertRow(row_position)
 
     def save_repair(self):
-        repair_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
-        REPAIR = sql.read_sql('SELECT * FROM engineer', repair_con)
-        print(REPAIR)
-        # df.to_excel('ds.xlsx')
+        self.remove_repair()
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()        
+        sql_add = "INSERT INTO repair_save SELECT equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost FROM equipment_repair JOIN equipment ON Categ_Name = cat_name WHERE Categ_Name = %s GROUP BY equip_serial;"
+        adr = (self.category_combo1.currentText(), )
+        self.cur.execute(sql_add, adr)
+        df = sql.read_sql('SELECT * FROM repair_save', self.db)
+        print(df)
+        df.to_excel('F:/Ubuntu/Clinical_Project/Reports/Repair/repair.xlsx')
+
+    def remove_repair(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()  
+        self.cur.execute(''' TRUNCATE TABLE repair_save ''')
+
+    # Show Error in UI
+    def show_error_combobox(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        self.cur.execute(''' SELECT error FROM equipment_repair ''')
+        data = self.cur.fetchall()
+        for error in data:
+            self.error_combo.addItem(error[0])
 
     def Add_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        equip_sn = self.equipsn_combo0.currentText()
-        equip_name = self.equipname_combo.currentText()
-        equip_code = self.equipcode_combo.currentText()
-        tech_name = self.tech_name.text()
-        ppm_time = self.ppm_time.text()
-        ppm_year = self.ppm_year.text()
-        error = self.error.text()
-        self.cur.execute(''' INSERT INTO equipment_ppm (EQUIPMENT_SN, EQUIPMENT_NAME, EQUIPMENT_CODE, technician_name, ppm_time, ppm_year, error) VALUES (%s, %s, %s, %s, %s, %s, %s) '''
-                         , (equip_sn, equip_name, equip_code, tech_name, ppm_time, ppm_year, error))
+        equip_sn = self.equipsn_combo2.currentText()
+        equip_name = self.equipname_combo1.currentText()
+        equip_code = self.equipcode_combo1.currentText()
+        cat_name = self.category_combo5.currentText()
+        tech_name = self.tech_name1.text()
+        inst_time = self.inst_time.text()
+        equip_model = self.equip_model.text()
+        self.cur.execute(''' INSERT INTO equipment_installation (Equ_SN, Equ_Name, Equ_Code, catName, techName, installation_time, equipment_model) VALUES (%s, %s, %s, %s, %s, %s, %s) '''
+                         , (equip_sn, equip_name, equip_code, cat_name, tech_name, inst_time, equip_model))
         self.db.commit()
-        self.statusBar().showMessage('New PPM Added')
-        self.show_ppm()
+        self.statusBar().showMessage('New Installation Added')
+        self.show_installation()
 
     def show_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        self.cur.execute(''' SELECT * FROM equipment_ppm ''')
+        self.cur.execute(''' SELECT * FROM equipment_installation ''')
         data = self.cur.fetchall()
 
         if data:
-            self.ppm_table0.setRowCount(0)
-            self.ppm_table0.insertRow(0)
+            self.inst_table0.setRowCount(0)
+            self.inst_table0.insertRow(0)
             for row, form in enumerate(data):
                 for column, item in enumerate(form):
-                    self.ppm_table0.setItem(row, column, QTableWidgetItem(str(item)))
+                    self.inst_table0.setItem(row, column, QTableWidgetItem(str(item)))
                     column += 1
-                row_position = self.ppm_table0.rowCount()
-                self.ppm_table0.insertRow(row_position)
+                row_position = self.inst_table0.rowCount()
+                self.inst_table0.insertRow(row_position)
+
+    def show_installation_combo(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()
+        sql = "SELECT equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost FROM equipment_repair JOIN equipment ON Categ_Name = cat_name WHERE Categ_Name = %s GROUP BY equip_serial;"
+        adr = (self.category_combo2.currentText(), )
+        self.cur.execute(sql, adr)
+        data = self.cur.fetchall()
+
+        if data:
+            self.inst_table.setRowCount(0)
+            self.inst_table.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.inst_table.setItem(row, column, QTableWidgetItem(str(item)))
+                    column += 1
+                row_position = self.inst_table.rowCount()
+                self.inst_table.insertRow(row_position)
 
     def save_installation(self):
-        installation_con = connect(user = "root", password = "DARSH1999", host = "localhost", database = "cmms")
-        INSTALLATION = sql.read_sql('SELECT * FROM engineer', installation_con)
-        print(INSTALLATION)
-        # df.to_excel('ds.xlsx')
+        self.remove_installation()
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()        
+        sql_add = "INSERT INTO repair_save SELECT equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost FROM equipment_repair JOIN equipment ON Categ_Name = cat_name WHERE Categ_Name = %s GROUP BY equip_serial;"
+        adr = (self.category_combo2.currentText(), )
+        self.cur.execute(sql_add, adr)
+        df = sql.read_sql('SELECT * FROM installation_save', self.db)
+        print(df)
+        df.to_excel('F:/Ubuntu/Clinical_Project/Reports/Installation/installation.xlsx')
+
+    def remove_installation(self):
+        self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
+        self.cur = self.db.cursor()  
+        self.cur.execute(''' TRUNCATE TABLE repair_save ''')
 
 def main():
     app = QApplication(sys.argv)

@@ -7,8 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>1438</width>
-    <height>650</height>
+    <height>800</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>CMMS</string>
@@ -49,7 +55,7 @@
            <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
-           <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+           <enum>QAbstractScrollArea::AdjustIgnored</enum>
           </property>
           <property name="alternatingRowColors">
            <bool>false</bool>
@@ -3175,11 +3181,8 @@
            <attribute name="title">
             <string>Installation</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_45">
+           <layout class="QGridLayout" name="gridLayout_34">
             <item row="0" column="0">
-             <layout class="QGridLayout" name="gridLayout_46"/>
-            </item>
-            <item row="1" column="0">
              <layout class="QGridLayout" name="gridLayout_47">
               <item row="1" column="0">
                <widget class="QTableWidget" name="inst_table0">
@@ -3190,125 +3193,6 @@
                 </property>
                 <property name="sizeAdjustPolicy">
                  <enum>QAbstractScrollArea::AdjustIgnored</enum>
-                </property>
-                <column>
-                 <property name="text">
-                  <string>SSN</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Name</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Phone</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>E-mail</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="view_inst_btn0">
-                <property name="text">
-                 <string>View Installation</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="Reports">
-       <attribute name="title">
-        <string>Reports</string>
-       </attribute>
-       <layout class="QGridLayout" name="gridLayout_28">
-        <item row="0" column="0">
-         <widget class="QTabWidget" name="tabWidget_4">
-          <property name="font">
-           <font>
-            <family>Courier New</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="tabShape">
-           <enum>QTabWidget::Triangular</enum>
-          </property>
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="tab_10">
-           <attribute name="title">
-            <string>PPM</string>
-           </attribute>
-           <layout class="QGridLayout" name="gridLayout_34">
-            <item row="0" column="0">
-             <layout class="QGridLayout" name="gridLayout_26">
-              <item row="1" column="0">
-               <widget class="QComboBox" name="category_combo0">
-                <item>
-                 <property name="text">
-                  <string>Select Category</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="Catergories0">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Categories:</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="1" column="0">
-             <layout class="QGridLayout" name="gridLayout_27">
-              <item row="0" column="0">
-               <widget class="QTableWidget" name="ppm_table">
-                <property name="font">
-                 <font>
-                  <family>Courier New</family>
-                  <pointsize>10</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                 </font>
                 </property>
                 <column>
                  <property name="text">
@@ -3342,46 +3226,6 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Work Time</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Insurance</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Maintenance</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Price</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
                   <string>Category Name</string>
                  </property>
                  <property name="font">
@@ -3402,7 +3246,7 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>PPM Time</string>
+                  <string>Installaion Time</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3412,7 +3256,7 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Number of PPM/Year</string>
+                  <string>Equipment Model</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3422,14 +3266,294 @@
                 </column>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="ppm_save_btn">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="view_inst_btn0">
                 <property name="text">
-                 <string>Save</string>
+                 <string>View Installation</string>
                 </property>
                </widget>
               </item>
              </layout>
+            </item>
+            <item row="0" column="1">
+             <widget class="QGroupBox" name="installation">
+              <property name="title">
+               <string>Installation Details</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_45">
+               <item row="0" column="0">
+                <widget class="QLabel" name="EquipmentSN1_2">
+                 <property name="text">
+                  <string>Equipment SN:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="equipsn_combo2">
+                 <item>
+                  <property name="text">
+                   <string>Select SN</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="EquipmentName0_2">
+                 <property name="text">
+                  <string>Equipment Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="equipcode_combo1">
+                 <item>
+                  <property name="text">
+                   <string>Select Equipment Code</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="equipname_combo1">
+                 <item>
+                  <property name="text">
+                   <string>Select Equipment Name</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="EquipmentCode1_2">
+                 <property name="text">
+                  <string>Equipment Code:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="tech_name1">
+                 <property name="placeholderText">
+                  <string>Enter technician name eg. Ahmed</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="Category_2">
+                 <property name="text">
+                  <string>Category Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="category_combo5">
+                 <item>
+                  <property name="text">
+                   <string>Select Category</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="TechName_2">
+                 <property name="text">
+                  <string>Technician Name:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLineEdit" name="equip_model">
+                 <property name="placeholderText">
+                  <string>Enter model of equipment eg. Philips</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="inst_time">
+                 <property name="placeholderText">
+                  <string>Enter time for installation eg. 2020-03-23 04:00:00</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="EquipmentModel">
+                 <property name="text">
+                  <string>Equipment Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="InstTime">
+                 <property name="text">
+                  <string>Installation Time:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QPushButton" name="add_installation_btn">
+                 <property name="text">
+                  <string>Add Installation</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Reports">
+       <attribute name="title">
+        <string>Reports</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_28">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget_4">
+          <property name="font">
+           <font>
+            <family>Courier New</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="tabShape">
+           <enum>QTabWidget::Triangular</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_10">
+           <attribute name="title">
+            <string>PPM</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_27">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="gridLayout_26">
+              <item row="1" column="0">
+               <widget class="QComboBox" name="category_combo0">
+                <item>
+                 <property name="text">
+                  <string>Select Category</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="Catergories0">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Categories:</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="ppm_table">
+              <property name="font">
+               <font>
+                <family>Courier New</family>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QAbstractScrollArea::AdjustIgnored</enum>
+              </property>
+              <column>
+               <property name="text">
+                <string>Serial Number</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Equipment Name</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Equipment Code</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Category Name</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Technician Name</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>PPM Time</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Number of PPM/Year</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Error</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Courier New</family>
+                </font>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="ppm_save_btn">
+              <property name="text">
+               <string>Save</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -3437,7 +3561,7 @@
            <attribute name="title">
             <string>Repair</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_35">
+           <layout class="QGridLayout" name="gridLayout_36">
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_30">
               <item row="0" column="0">
@@ -3558,7 +3682,7 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>New Column</string>
+                  <string>Repair Type</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3593,7 +3717,7 @@
            <attribute name="title">
             <string>Installation</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_36">
+           <layout class="QGridLayout" name="gridLayout_35">
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_32">
               <item row="0" column="0">
@@ -3635,9 +3759,12 @@
                   <family>Courier New</family>
                  </font>
                 </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                </property>
                 <column>
                  <property name="text">
-                  <string>SSN</string>
+                  <string>Serial Number</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3647,7 +3774,7 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Name</string>
+                  <string>Equipment Name</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3657,7 +3784,7 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Phone</string>
+                  <string>Equipment Code</string>
                  </property>
                  <property name="font">
                   <font>
@@ -3667,7 +3794,37 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>E-mail</string>
+                  <string>Category Name</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Courier New</family>
+                  </font>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Technician Name</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Courier New</family>
+                  </font>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Installaion Time</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Courier New</family>
+                  </font>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Equipment Model</string>
                  </property>
                  <property name="font">
                   <font>
