@@ -254,6 +254,8 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('New Equipment Added')
         self.show_equipment()
         self.show_equipmentSN_combobox()
+        self.show_equipmentName_combobox()
+        self.show_equipmentCode_combobox()
 
     def show_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -286,6 +288,8 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('Equipment Deleted')
         self.show_equipment()
         self.show_equipmentSN_combobox()
+        self.show_equipmentName_combobox()
+        self.show_equipmentCode_combobox()        
 
     def Edit_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -306,6 +310,8 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('Equipment updated successfully')
         self.show_equipment()
         self.show_equipmentSN_combobox()
+        self.show_equipmentName_combobox()
+        self.show_equipmentCode_combobox()        
 
     # Show Equipment Serial Number in UI
     def show_equipmentSN_combobox(self):
@@ -401,6 +407,7 @@ class MainApp(QMainWindow, ui):
         self.db.commit()
         self.statusBar().showMessage('New Vendor Added')
         self.show_vendor()
+        self.show_vendorSSN_combobox()
 
     def show_vendor(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -421,10 +428,7 @@ class MainApp(QMainWindow, ui):
     def Edit_vendor(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        current_name = self.vendor_name0.text()
         current_ssn = self.vendor_ssn0.text()
-        current_phone = self.vendor_phone0.text()
-        current_email = self.vendor_mail0.text()
         new_name = self.vendor_name1.text()
         new_ssn = self.vendor_ssn1.text()
         new_phone = self.vendor_phone1.text()
@@ -434,6 +438,7 @@ class MainApp(QMainWindow, ui):
         self.db.commit()
         self.statusBar().showMessage('Vendor updated successfully')
         self.show_vendor()
+        self.show_vendorSSN_combobox()
 
     # Show Vendor SSN in UI
     def show_vendorSSN_combobox(self):
@@ -525,10 +530,11 @@ class MainApp(QMainWindow, ui):
         repair_type = self.repair_type.text()
         cost = self.repair_cost.text()
         self.cur.execute(''' INSERT INTO equipment_repair (equip_serial, equip_name, equip_code, Categ_Name, error, fixed, technician_name, repair_time, repair_type, cost) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) '''
-                         , (equip_sn, equip_name, equip_code, cat_name, tech_name, error, fixed, repair_time, repair_type, cost))
+                         , (equip_sn, equip_name, equip_code, cat_name, error, fixed, tech_name, repair_time, repair_type, cost))
         self.db.commit()
         self.statusBar().showMessage('New Repair Added')
         self.show_repair()
+        self.show_error_combobox()
 
     def show_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -661,16 +667,5 @@ def main():
     window = login()
     window.show()
     app.exec_()
-if __name__=='__main__':
+if __name__ == '__main__':
     main()
-
-#INSERT INTO cmms.equipment
-#(serial_number, equipment_name, equipment_code, work_time, insurance, maintenance, price, cat_name)
-#VALUES
-#("E2", "Monitor", "0001", "2020-03-23", "2020-06-20", "2020-04-20", "1500", "ICU");
-
-#SELECT serial_number, equipment_name, equipment_code, work_time, insurance, maintenance, price, cat_name
-#FROM cmms.equipment
-#INNER JOIN cmms.category ON cat_name = name;
-
-#DELETE FROM table_name WHERE condition;

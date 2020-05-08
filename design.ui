@@ -2875,10 +2875,26 @@
                <string>Repair Details</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_42">
+               <item row="1" column="1">
+                <widget class="QComboBox" name="equipname_combo0">
+                 <item>
+                  <property name="text">
+                   <string>Select Equipment Name</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="EquipmentSN2">
                  <property name="text">
                   <string>Equipment SN:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="EquipmentName1">
+                 <property name="text">
+                  <string>Equipment Name:</string>
                  </property>
                 </widget>
                </item>
@@ -2891,26 +2907,10 @@
                  </item>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="EquipmentName1">
+               <item row="3" column="0">
+                <widget class="QLabel" name="Category0">
                  <property name="text">
-                  <string>Equipment Name:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QComboBox" name="equipname_combo0">
-                 <item>
-                  <property name="text">
-                   <string>Select Equipment Name</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="EquipmentCode2">
-                 <property name="text">
-                  <string>Equipment Code:</string>
+                  <string>Category Name:</string>
                  </property>
                 </widget>
                </item>
@@ -2923,13 +2923,6 @@
                  </item>
                 </widget>
                </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="Category0">
-                 <property name="text">
-                  <string>Category Name:</string>
-                 </property>
-                </widget>
-               </item>
                <item row="3" column="1">
                 <widget class="QComboBox" name="category_combo4">
                  <item>
@@ -2939,17 +2932,10 @@
                  </item>
                 </widget>
                </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="TechName0">
+               <item row="2" column="0">
+                <widget class="QLabel" name="EquipmentCode2">
                  <property name="text">
-                  <string>Technician Name:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLineEdit" name="tech_name0">
-                 <property name="placeholderText">
-                  <string>Enter technician name eg. Eslam</string>
+                  <string>Equipment Code:</string>
                  </property>
                 </widget>
                </item>
@@ -2960,17 +2946,17 @@
                  </property>
                 </widget>
                </item>
-               <item row="5" column="1">
-                <widget class="QLineEdit" name="error">
-                 <property name="placeholderText">
-                  <string>Enter cause of error eg. Power Cable, Filter...</string>
-                 </property>
-                </widget>
-               </item>
                <item row="6" column="0">
                 <widget class="QLabel" name="FicedORNot">
                  <property name="text">
                   <string>Fixed/Not:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="error">
+                 <property name="placeholderText">
+                  <string>Enter cause of error eg. Power Cable, Filter...</string>
                  </property>
                 </widget>
                </item>
@@ -2993,42 +2979,49 @@
                  </item>
                 </widget>
                </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="RepairTime">
-                 <property name="text">
-                  <string>Repair Time:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLineEdit" name="repair_time">
-                 <property name="placeholderText">
-                  <string>Enter time of repair eg. 2020-03-23 03:00:00</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
+               <item row="9" column="0">
                 <widget class="QLabel" name="RepairType">
                  <property name="text">
                   <string>Repair Type:</string>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="1">
+               <item row="8" column="0">
+                <widget class="QLabel" name="RepairTime">
+                 <property name="text">
+                  <string>Repair Time:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
                 <widget class="QLineEdit" name="repair_type">
                  <property name="placeholderText">
                   <string>Enter way of repair error eg. Replace Filter...</string>
                  </property>
                 </widget>
                </item>
-               <item row="9" column="0">
+               <item row="8" column="1">
+                <widget class="QLineEdit" name="repair_time">
+                 <property name="placeholderText">
+                  <string>Enter time of repair eg. 2020-03-23 03:00:00</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
+                <widget class="QPushButton" name="add_repair_btn">
+                 <property name="text">
+                  <string>Add Repair</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
                 <widget class="QLabel" name="Cost">
                  <property name="text">
                   <string>Cost:</string>
                  </property>
                 </widget>
                </item>
-               <item row="9" column="1">
+               <item row="10" column="1">
                 <widget class="QLineEdit" name="repair_cost">
                  <property name="text">
                   <string/>
@@ -3038,10 +3031,17 @@
                  </property>
                 </widget>
                </item>
-               <item row="10" column="1">
-                <widget class="QPushButton" name="add_repair_btn">
+               <item row="7" column="1">
+                <widget class="QLineEdit" name="tech_name0">
+                 <property name="placeholderText">
+                  <string>Enter technician name eg. Eslam</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="TechName0">
                  <property name="text">
-                  <string>Add Repair</string>
+                  <string>Technician Name:</string>
                  </property>
                 </widget>
                </item>
@@ -3113,16 +3113,6 @@
                 </column>
                 <column>
                  <property name="text">
-                  <string>Technician Name</string>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Courier New</family>
-                  </font>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
                   <string>Error</string>
                  </property>
                  <property name="font">
@@ -3134,6 +3124,16 @@
                 <column>
                  <property name="text">
                   <string>Fixed/Not</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Courier New</family>
+                  </font>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Technician Name</string>
                  </property>
                  <property name="font">
                   <font>
