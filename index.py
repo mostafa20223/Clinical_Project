@@ -4,8 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUiType
 from pymysql import *
 import pandas.io.sql as sql
-import sys, xlwt, qdarkstyle, mysql.connector
-# import MySQLdb
+import sys, qdarkstyle, mysql.connector
 
 ui,_ = loadUiType('design.ui')
 login,_ = loadUiType('login.ui')
@@ -21,7 +20,6 @@ class login(QWidget, login):
         self.cur = self.db.cursor()
         username = self.user_enter.text()
         password = self.pass_enter.text()
-
         self.cur.execute(''' SELECT * FROM users ''')
         data = self.cur.fetchall()
         for row in data:
@@ -44,7 +42,27 @@ class MainApp(QMainWindow, ui):
         self.show_equipmentCode_combobox()
         self.show_vendorSSN_combobox()
         self.show_error_combobox()
-    
+
+        # Icons
+        icon = QIcon()
+        icon.addPixmap(QPixmap("icons/cmms.png"), QIcon.Normal, QIcon.Off)
+        self.cmms_tab.setIcon(icon)
+        icon0 = QIcon()
+        icon0.addPixmap(QPixmap("icons/equipment.png"), QIcon.Normal, QIcon.Off)
+        self.equipment_tab.setIcon(icon0)
+        icon1 = QIcon()
+        icon1.addPixmap(QPixmap("icons/users.jpg"), QIcon.Normal, QIcon.Off)
+        self.user_tab.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addPixmap(QPixmap("icons/info.png"), QIcon.Normal, QIcon.Off)
+        self.more_info_tab.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addPixmap(QPixmap("icons/tracking.png"), QIcon.Normal, QIcon.Off)
+        self.tracking_tab.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addPixmap(QPixmap("icons/reports.png"), QIcon.Normal, QIcon.Off)
+        self.reports_tab.setIcon(icon4)
+
     def Handel_buttons(self):
         self.tabWidget.tabBar().setVisible(False)
         self.cmms_tab.clicked.connect(self.open_cmms_tab)
@@ -53,39 +71,31 @@ class MainApp(QMainWindow, ui):
         self.more_info_tab.clicked.connect(self.open_info_tab)
         self.tracking_tab.clicked.connect(self.open_tracking_tab)
         self.reports_tab.clicked.connect(self.open_report_tab)
-
         self.add_cat_btn.clicked.connect(self.Add_category)
         self.view_cat_btn.clicked.connect(self.show_category)
         self.edit_cat_btn.clicked.connect(self.Edit_category)
-
         self.add_user_btn.clicked.connect(self.Add_new_user)
         self.user_login_btn.clicked.connect(self.login)
         self.edit_user_btn.clicked.connect(self.Edit_user)
-
         self.add_equip_btn.clicked.connect(self.Add_equipment)
         self.view_equip_btn.clicked.connect(self.show_equipment)
         self.view_equip_btn0.clicked.connect(self.show_equipment)
         self.del_equip_btn.clicked.connect(self.delete_equipment)
         self.edit_equip_btn.clicked.connect(self.Edit_equipment)
-
         self.add_eng_btn.clicked.connect(self.Add_engineer)
         self.view_eng_btn.clicked.connect(self.show_engineer)
         self.edit_eng_btn.clicked.connect(self.Edit_engineer)
-
         self.add_vendor_btn.clicked.connect(self.Add_vendor)
         self.view_vendor_btn.clicked.connect(self.show_vendor)
         self.edit_vendor_btn.clicked.connect(self.Edit_vendor)
-
         self.add_ppm_btn.clicked.connect(self.Add_ppm)
         self.view_ppm_btn0.clicked.connect(self.show_ppm)
         self.category_combo0.currentTextChanged.connect(self.show_ppm_combo)
         self.ppm_save_btn.clicked.connect(self.save_ppm)
-
         self.add_repair_btn.clicked.connect(self.Add_repair)
         self.view_repair_btn0.clicked.connect(self.show_repair)
         self.category_combo1.currentTextChanged.connect(self.show_repair_combo)
         self.repair_save_btn.clicked.connect(self.save_repair)
-
         self.add_installation_btn.clicked.connect(self.Add_installation)
         self.view_inst_btn0.clicked.connect(self.show_installation)
         self.category_combo2.currentTextChanged.connect(self.show_installation_combo)
@@ -113,7 +123,6 @@ class MainApp(QMainWindow, ui):
         email = self.add_email.text()
         password = self.add_pass.text()
         password2 = self.readd_pass.text()
-
         if password == password2:
             self.cur.execute(''' INSERT INTO users (username, email, password) VALUES (%s, %s, %s) '''
                              , (username, email, password))
@@ -121,13 +130,11 @@ class MainApp(QMainWindow, ui):
             self.statusBar().showMessage('New User Added')
         else:
             self.statusBar().showMessage('Please add a valid password twice')
-
     def login(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         username = self.access_user.text()
         password = self.access_pass.text()
-
         self.cur.execute(''' SELECT * FROM users ''')
         data = self.cur.fetchall()
         for row in data:
@@ -138,14 +145,12 @@ class MainApp(QMainWindow, ui):
                 self.edit_user.setText(row[1])
                 self.edit_email.setText(row[2])
                 self.edit_pass.setText(row[3])
-
     def Edit_user(self):
         username = self.edit_user.text()
         email = self.edit_email.text()
         password = self.edit_pass.text()
         password2 = self.reedit_pass.text()
         original_name = self.access_user.text()
-
         if password == password2:
             self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
             self.cur = self.db.cursor()
@@ -160,12 +165,8 @@ class MainApp(QMainWindow, ui):
     def show_cmms(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
-        self.cur.execute(''' SELECT serial_number, equipment_name, equipment_code, portable, work_time, insurance, maintenance, price, cat_name
-        FROM equipment
-        FULL JOIN category ON cat_name = name
-        ORDER BY serial_number ''')
+        self.cur.execute(''' SELECT serial_number, equipment_name, equipment_code, portable, work_time, insurance, maintenance, price, cat_name FROM equipment FULL JOIN category ON cat_name = name ORDER BY serial_number ''')
         data = self.cur.fetchall()
-
         if data:
             self.cmms_table.setRowCount(0)
             self.cmms_table.insertRow(0)
@@ -188,13 +189,11 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('New Category Added')
         self.show_category()
         self.show_category_combobox()
-
     def show_category(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM category ''')
         data = self.cur.fetchall()
-
         if data:
             self.category_table.setRowCount(0)
             self.category_table.insertRow(0)
@@ -204,7 +203,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.category_table.rowCount()
                 self.category_table.insertRow(row_position)
-
     def Edit_category(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -218,8 +216,6 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('Category updated successfully')
         self.show_category()
         self.show_category_combobox()
-
-    # Show Category in UI
     def show_category_combobox(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -256,13 +252,11 @@ class MainApp(QMainWindow, ui):
         self.show_equipmentSN_combobox()
         self.show_equipmentName_combobox()
         self.show_equipmentCode_combobox()
-
     def show_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM equipment ''')
         data = self.cur.fetchall()
-
         if data:
             self.equipment_table.setRowCount(0)
             self.equipment_table.insertRow(0)
@@ -277,7 +271,6 @@ class MainApp(QMainWindow, ui):
                 self.equipment_table.insertRow(row_position)
                 row_position0 = self.equipment_table0.rowCount()
                 self.equipment_table0.insertRow(row_position0)                
-
     def delete_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -289,8 +282,7 @@ class MainApp(QMainWindow, ui):
         self.show_equipment()
         self.show_equipmentSN_combobox()
         self.show_equipmentName_combobox()
-        self.show_equipmentCode_combobox()        
-
+        self.show_equipmentCode_combobox()
     def Edit_equipment(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -312,8 +304,6 @@ class MainApp(QMainWindow, ui):
         self.show_equipmentSN_combobox()
         self.show_equipmentName_combobox()
         self.show_equipmentCode_combobox()        
-
-    # Show Equipment Serial Number in UI
     def show_equipmentSN_combobox(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -324,8 +314,6 @@ class MainApp(QMainWindow, ui):
             self.equipsn_combo0.addItem(e_sn[0])
             self.equipsn_combo1.addItem(e_sn[0])
             self.equipsn_combo2.addItem(e_sn[0])
-
-    # Show Equipment Name in UI
     def show_equipmentName_combobox(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -335,8 +323,6 @@ class MainApp(QMainWindow, ui):
             self.equipname_combo.addItem(e_sn[0])
             self.equipname_combo0.addItem(e_sn[0])
             self.equipname_combo1.addItem(e_sn[0])
-
-    # Show Equipment Code in UI
     def show_equipmentCode_combobox(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -357,19 +343,16 @@ class MainApp(QMainWindow, ui):
         eng_email = self.eng_mail.text()
         equip_serialnumber = self.equipsn_combo.currentText()
         vendor_ssn = self.vendorssn_combo.currentText()
-
         self.cur.execute(''' INSERT INTO engineer (ssn, eng_name, eng_phone, eng_email, equip_sn, v_ssn) VALUES (%s, %s, %s, %s, %s, %s) '''
                          , (ssn, eng_name, eng_phone, eng_email, equip_serialnumber, vendor_ssn))
         self.db.commit()
         self.statusBar().showMessage('New Engineer Added')
         self.show_engineer()
-
     def show_engineer(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM engineer ''')
         data = self.cur.fetchall()
-
         if data:
             self.eng_table.setRowCount(0)
             self.eng_table.insertRow(0)
@@ -379,7 +362,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.eng_table.rowCount()
                 self.eng_table.insertRow(row_position)
-
     def Edit_engineer(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -408,13 +390,11 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('New Vendor Added')
         self.show_vendor()
         self.show_vendorSSN_combobox()
-
     def show_vendor(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM vendor ''')
         data = self.cur.fetchall()
-
         if data:
             self.vendor_table.setRowCount(0)
             self.vendor_table.insertRow(0)
@@ -424,7 +404,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.vendor_table.rowCount()
                 self.vendor_table.insertRow(row_position)
-
     def Edit_vendor(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -439,8 +418,6 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('Vendor updated successfully')
         self.show_vendor()
         self.show_vendorSSN_combobox()
-
-    # Show Vendor SSN in UI
     def show_vendorSSN_combobox(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -449,6 +426,7 @@ class MainApp(QMainWindow, ui):
         for v_ssn in data:
             self.vendorssn_combo.addItem(v_ssn[0])
 
+    # PPM
     def Add_ppm(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -465,13 +443,11 @@ class MainApp(QMainWindow, ui):
         self.db.commit()
         self.statusBar().showMessage('New PPM Added')
         self.show_ppm()
-
     def show_ppm(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM equipment_ppm ''')
         data = self.cur.fetchall()
-
         if data:
             self.ppm_table0.setRowCount(0)
             self.ppm_table0.insertRow(0)
@@ -481,7 +457,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.ppm_table0.rowCount()
                 self.ppm_table0.insertRow(row_position)
-
     def show_ppm_combo(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -489,7 +464,6 @@ class MainApp(QMainWindow, ui):
         adr = (self.category_combo0.currentText(), )
         self.cur.execute(sql, adr)
         data = self.cur.fetchall()
-
         if data:
             self.ppm_table.setRowCount(0)
             self.ppm_table.insertRow(0)
@@ -499,7 +473,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.ppm_table.rowCount()
                 self.ppm_table.insertRow(row_position)
-
     def save_ppm(self):
         self.remove_ppm()
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -510,12 +483,12 @@ class MainApp(QMainWindow, ui):
         df = sql.read_sql('SELECT * FROM ppm_save', self.db)
         print(df)
         df.to_excel('F:/Ubuntu/Clinical_Project/Reports/PPM/ppm.xlsx')
-
     def remove_ppm(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  
         self.cur.execute(''' TRUNCATE TABLE ppm_save ''')
 
+    # Repair
     def Add_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -535,13 +508,11 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage('New Repair Added')
         self.show_repair()
         self.show_error_combobox()
-
     def show_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM equipment_repair ''')
         data = self.cur.fetchall()
-
         if data:
             self.repair_table0.setRowCount(0)
             self.repair_table0.insertRow(0)
@@ -551,7 +522,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.repair_table0.rowCount()
                 self.repair_table0.insertRow(row_position)
-
     def show_repair_combo(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -559,7 +529,6 @@ class MainApp(QMainWindow, ui):
         adr = (self.category_combo1.currentText(), )
         self.cur.execute(sql, adr)
         data = self.cur.fetchall()
-
         if data:
             self.repair_table.setRowCount(0)
             self.repair_table.insertRow(0)
@@ -569,7 +538,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.repair_table.rowCount()
                 self.repair_table.insertRow(row_position)
-
     def save_repair(self):
         self.remove_repair()
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -580,13 +548,11 @@ class MainApp(QMainWindow, ui):
         df = sql.read_sql('SELECT * FROM repair_save', self.db)
         print(df)
         df.to_excel('F:/Ubuntu/Clinical_Project/Reports/Repair/repair.xlsx')
-
     def remove_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  
         self.cur.execute(''' TRUNCATE TABLE repair_save ''')
 
-    # Show Error in UI
     def show_error_combobox(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -595,6 +561,7 @@ class MainApp(QMainWindow, ui):
         for error in data:
             self.error_combo.addItem(error[0])
 
+    # Installation
     def Add_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -610,13 +577,11 @@ class MainApp(QMainWindow, ui):
         self.db.commit()
         self.statusBar().showMessage('New Installation Added')
         self.show_installation()
-
     def show_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
         self.cur.execute(''' SELECT * FROM equipment_installation ''')
         data = self.cur.fetchall()
-
         if data:
             self.inst_table0.setRowCount(0)
             self.inst_table0.insertRow(0)
@@ -626,7 +591,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.inst_table0.rowCount()
                 self.inst_table0.insertRow(row_position)
-
     def show_installation_combo(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()
@@ -634,7 +598,6 @@ class MainApp(QMainWindow, ui):
         adr = (self.category_combo2.currentText(), )
         self.cur.execute(sql, adr)
         data = self.cur.fetchall()
-
         if data:
             self.inst_table.setRowCount(0)
             self.inst_table.insertRow(0)
@@ -644,7 +607,6 @@ class MainApp(QMainWindow, ui):
                     column += 1
                 row_position = self.inst_table.rowCount()
                 self.inst_table.insertRow(row_position)
-
     def save_installation(self):
         self.remove_installation()
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
@@ -655,7 +617,6 @@ class MainApp(QMainWindow, ui):
         df = sql.read_sql('SELECT * FROM installation_save', self.db)
         print(df)
         df.to_excel('F:/Ubuntu/Clinical_Project/Reports/Installation/installation.xlsx')
-
     def remove_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  

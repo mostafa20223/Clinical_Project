@@ -3863,10 +3863,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>icons/cmms.png</normaloff>icons/cmms.png</iconset>
-        </property>
         <property name="iconSize">
          <size>
           <width>60</width>
@@ -3891,10 +3887,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>icons/equipment.png</normaloff>icons/equipment.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -3921,10 +3913,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>icons/info.png</normaloff>icons/info.png</iconset>
-        </property>
         <property name="iconSize">
          <size>
           <width>60</width>
@@ -3949,10 +3937,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="icons.qrc">
-          <normaloff>:/icons/users.jpg</normaloff>:/icons/users.jpg</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -3979,10 +3963,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>icons/reports.png</normaloff>icons/reports.png</iconset>
-        </property>
         <property name="iconSize">
          <size>
           <width>60</width>
@@ -4001,10 +3981,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>icons/tracking.png</normaloff>icons/tracking.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -4030,8 +4006,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
