@@ -482,7 +482,7 @@ class MainApp(QMainWindow, ui):
         self.cur.execute(sql_add, adr)
         df = sql.read_sql('SELECT * FROM ppm_save', self.db)
         print(df)
-        df.to_excel('F:/Ubuntu/Clinical_Project/Reports/PPM/ppm.xlsx')
+        df.to_excel('D:/Clinical_Project/Reports/PPM/ppm.xlsx')
     def remove_ppm(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  
@@ -547,7 +547,7 @@ class MainApp(QMainWindow, ui):
         self.cur.execute(sql_add, adr)
         df = sql.read_sql('SELECT * FROM repair_save', self.db)
         print(df)
-        df.to_excel('F:/Ubuntu/Clinical_Project/Reports/Repair/repair.xlsx')
+        df.to_excel('D:/Clinical_Project/Reports/Repair/repair.xlsx')
     def remove_repair(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  
@@ -616,7 +616,7 @@ class MainApp(QMainWindow, ui):
         self.cur.execute(sql_add, adr)
         df = sql.read_sql('SELECT * FROM installation_save', self.db)
         print(df)
-        df.to_excel('F:/Ubuntu/Clinical_Project/Reports/Installation/installation.xlsx')
+        df.to_excel('D:/Clinical_Project/Reports/Installation/installation.xlsx')
     def remove_installation(self):
         self.db = mysql.connector.connect(host = 'localhost', user = 'root', password = 'DARSH1999', db = 'cmms')
         self.cur = self.db.cursor()  
