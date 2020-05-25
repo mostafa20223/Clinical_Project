@@ -25,28 +25,54 @@
 The following images summarize our output in this project starting from login till getting the reported details for (PPM, Repair or Installation).
 
 1. Login Page
-[Login Page](https://www.google.com "Login Page")
+
+[Login Page](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/login.PNG)
+
 2. First View
-[First View](https://www.google.com "First View")
+
+[First View](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/cmms.PNG)
+
 3. Equipments
-[Equipments](https://www.google.com "Equipments")
+
+[Add/Delete Equipments](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/add_del_equip.PNG)
+[Edit Equipments](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/edit_equip.PNG)
+
 4. Categories
-[Categories](https://www.google.com "Categories")
+
+[Categories](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/category.PNG)
+
 5. Engineers
-[Engineers](https://www.google.com "Engineers")
+
+[Engineers](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/engineers.PNG)
+
 6. Vendors
-[Vendors](https://www.google.com "Vendors")
+
+[Vendors](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/vendors.PNG)
+
 7. Users
-[Users](https://www.google.com "Users")
+
+[Users](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/users.PNG)
+
 8. PPM
-[PPM Table](https://www.google.com "PPM Table")
-[PPM Save](https://www.google.com "PPM Save")
-[PPM Excel](https://www.google.com "PPM Excel")
+
+[PPM Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_table.PNG)
+
+[PPM Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_save.PNG)
+
+[PPM Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_excel.PNG)
+
 9. Repair
-[Repair Table](https://www.google.com "Repair Table")
-[Repair Save](https://www.google.com "Repair Save")
-[Repair Excel](https://www.google.com "Repair Excel")
+
+[Repair Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_table.PNG)
+
+[Repair Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_save.PNG)
+
+[Repair Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_excel.PNG)
+
 10. Installation
-[Installation Table](https://www.google.com "Installation Table")
-[Installation Save](https://www.google.com "Installation Save")
-[Installation Excel](https://www.google.com "Installation Excel")
+
+[Installation Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_table.PNG)
+
+[Installation Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_save.PNG)
+
+[Installation Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_excel.PNG)
