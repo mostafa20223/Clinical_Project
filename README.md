@@ -26,53 +26,54 @@ The following images summarize our output in this project starting from login ti
 
 1. Login Page
 
-[Login Page](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/login.PNG)
+![Login Page](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/login.PNG)
 
 2. First View
 
-[First View](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/cmms.PNG)
+![First View](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/cmms.PNG)
 
 3. Equipments
 
-[Add/Delete Equipments](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/add_del_equip.PNG)
-[Edit Equipments](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/edit_equip.PNG)
+![Add/Delete Equipments](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/add_del_equip.PNG)
+
+![Edit Equipments](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/edit_equip.PNG)
 
 4. Categories
 
-[Categories](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/category.PNG)
+![Categories](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/category.PNG)
 
 5. Engineers
 
-[Engineers](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/engineers.PNG)
+![Engineers](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/engineers.PNG)
 
 6. Vendors
 
-[Vendors](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/vendors.PNG)
+![Vendors](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/vendors.PNG)
 
 7. Users
 
-[Users](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/users.PNG)
+![Users](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/users.PNG)
 
 8. PPM
 
-[PPM Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_table.PNG)
+![PPM Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_table.PNG)
 
-[PPM Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_save.PNG)
+![PPM Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_save.PNG)
 
-[PPM Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_excel.PNG)
+![PPM Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/ppm_excel.PNG)
 
 9. Repair
 
-[Repair Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_table.PNG)
+![Repair Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_table.PNG)
 
-[Repair Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_save.PNG)
+![Repair Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_save.PNG)
 
-[Repair Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_excel.PNG)
+![Repair Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/repair_excel.PNG)
 
 10. Installation
 
-[Installation Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_table.PNG)
+![Installation Table](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_table.PNG)
 
-[Installation Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_save.PNG)
+![Installation Save](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_save.PNG)
 
-[Installation Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_excel.PNG)
+![Installation Excel](https://github.com/mostafa20223/Clinical_Project/blob/master/Results/installation_excel.PNG)
